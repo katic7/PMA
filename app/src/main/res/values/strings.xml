@@ -3,4 +3,19 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sign_in_label_and_button">Sign In</string>
+    <string name="sign_in_message_label">Hi there! Nice to see you again.</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="forgot_password">"Forgot Password?"</string>
+    <string name="sign_up">"Sign Up"</string>
+    <string name="lbl_name">"Name"</string>
+    <string name="lbl_surname">"Surname"</string>
+    <string name="lbl_skill">"Gaming skill level"</string>
+    <string name="cbox_i_agree">"I agree with the Terms of Services and Privacy Policy."</string>
+    <string name="btn_continue">"Continue"</string>
+    <string name="have_accont">"Have an Account? "</string>
+
+
 </resources>
