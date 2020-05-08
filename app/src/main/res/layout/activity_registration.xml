@@ -58,13 +58,11 @@
             android:layout_height="wrap_content"
             android:text="@string/lbl_skill" />
 
-        <EditText
-            android:id="@+id/tfSkill"
-            android:layout_width="match_parent"
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="289dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:layout_marginBottom="5dp" />
 
         <TextView
             android:id="@+id/textView9"
