@@ -28,7 +28,7 @@ public class FavoritesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_favorite,container,false);
-        gameRooms = HomeFragment.gameRooms;
+        gameRooms = MainActivity.gameRooms;
 
             for (GameRoom gr : gameRooms) {
                 arrayOfGameRoomNames.add(gr.getName());

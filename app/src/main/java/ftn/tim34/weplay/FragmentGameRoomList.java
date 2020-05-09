@@ -1,5 +1,6 @@
 package ftn.tim34.weplay;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,26 +8,23 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyEventsFragment#newInstance} factory method to
+ * Use the {@link FragmentGameRoomList#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyEventsFragment extends Fragment {
-    private ListView listView;
-    private List<Event> events;
-    private List<String> arrayEventsName = new ArrayList<String>();
-    private ArrayAdapter arrayAdapter;
+public class FragmentGameRoomList extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,7 +34,11 @@ public class MyEventsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public MyEventsFragment() {
+    private List<GameRoom> gameRooms;
+    private List<String> arrayOfGameRoomNames = new ArrayList<String>();
+    private ArrayAdapter arrayAdapter;
+
+    public FragmentGameRoomList() {
         // Required empty public constructor
     }
 
@@ -46,11 +48,11 @@ public class MyEventsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MyEventsFragment.
+     * @return A new instance of fragment FragmentGameRoomList.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyEventsFragment newInstance(String param1, String param2) {
-        MyEventsFragment fragment = new MyEventsFragment();
+    public static FragmentGameRoomList newInstance(String param1, String param2) {
+        FragmentGameRoomList fragment = new FragmentGameRoomList();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,17 +73,36 @@ public class MyEventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        GameRoom selected = MainActivity.gameRooms.get(0); //temp mock podaci
-        View view =inflater.inflate(R.layout.fragment_my_events,container,false);
-        events = selected.getEvents();
-        for(Event e : events) {
-            arrayEventsName.add(e.getName());
+        View view =inflater.inflate(R.layout.fragment_game_room_list,container,false);
+
+        ListView gameList = view.findViewById(R.id.game_room_list);
+        gameRooms = MainActivity.gameRooms;
+        for(GameRoom gr : gameRooms) {
+            arrayOfGameRoomNames.add(gr.getName());
         }
-        listView = view.findViewById(R.id.list_view_my_events);
         arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
-                arrayEventsName);
-        listView.setAdapter(arrayAdapter);
+                arrayOfGameRoomNames);
+        gameList.setAdapter(arrayAdapter);
+        gameList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(view.getContext(), GameRoomActivity.class);
+                GameRoom selected = new GameRoom();
+                for(GameRoom g : gameRooms) {
+                    if(g.getName().equals(arrayOfGameRoomNames.get(position))) {
+                        selected = g;
+                    }
+                }
+                Toast.makeText(getActivity(),selected.getName(), Toast.LENGTH_SHORT).show();
+                intent.putExtra("gameroom", selected);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 }
