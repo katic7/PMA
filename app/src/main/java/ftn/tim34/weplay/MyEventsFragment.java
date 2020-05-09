@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +19,14 @@ import ftn.tim34.weplay.model.GameRoom;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link GameRoomEventsFragment#newInstance} factory method to
+ * Use the {@link MyEventsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GameRoomEventsFragment extends Fragment {
-    private GameRoom selected;
+public class MyEventsFragment extends Fragment {
     private ListView listView;
     private List<Event> events;
     private List<String> arrayEventsName = new ArrayList<String>();
     private ArrayAdapter arrayAdapter;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,12 +36,8 @@ public class GameRoomEventsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public GameRoomEventsFragment() {
+    public MyEventsFragment() {
         // Required empty public constructor
-    }
-
-    public GameRoomEventsFragment(GameRoom g) {
-        this.selected = g;
     }
 
     /**
@@ -53,11 +46,11 @@ public class GameRoomEventsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment GameRoomEventsFragment.
+     * @return A new instance of fragment MyEventsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GameRoomEventsFragment newInstance(String param1, String param2) {
-        GameRoomEventsFragment fragment = new GameRoomEventsFragment();
+    public static MyEventsFragment newInstance(String param1, String param2) {
+        MyEventsFragment fragment = new MyEventsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,12 +71,13 @@ public class GameRoomEventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_game_room_events,container,false);
+        GameRoom selected = HomeFragment.gameRooms.get(0); //temp mock podaci
+        View view =inflater.inflate(R.layout.fragment_my_events,container,false);
         events = selected.getEvents();
         for(Event e : events) {
             arrayEventsName.add(e.getName());
         }
-        listView = view.findViewById(R.id.list_view_events);
+        listView = view.findViewById(R.id.list_view_my_events);
         arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
                 arrayEventsName);

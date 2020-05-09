@@ -8,9 +8,6 @@
    READ_GSERVICES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <meta-data
-        android:name="com.google.android.maps.v2.API_KEY"
-        android:value="AIzaSyDq7qhfF3VnG4qBTA9UvmGg99sHeDIjMwc" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDq7qhfF3VnG4qBTA9UvmGg99sHeDIjMwc"/>
         <activity android:name=".GameRoomActivity"></activity>
         <activity android:name=".GameRoomFragment" />
         <activity android:name=".RegistrationActivity" />

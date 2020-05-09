@@ -1,6 +1,9 @@
 package ftn.tim34.weplay.model;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameRoom implements Serializable {
     String name;
@@ -8,6 +11,8 @@ public class GameRoom implements Serializable {
     String working_hours;
     String phoneNumber;
     Float rating;
+    List<Event> events = new ArrayList<Event>();
+    List<Review> reviews = new ArrayList<Review>();
 
     public GameRoom() {
         super();
@@ -62,4 +67,23 @@ public class GameRoom implements Serializable {
         this.rating = rating;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 }

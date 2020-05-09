@@ -21,7 +21,7 @@ import ftn.tim34.weplay.model.GameRoom;
 public class FavoritesFragment extends Fragment {
     private ListView listView;
     private List<GameRoom> gameRooms;
-    private List<String> arrayOfGameRoomNames = new ArrayList<String>();
+    private List<String> arrayOfGameRoomNames = new ArrayList<>();
     private ArrayAdapter arrayAdapter;
 
     @Nullable
@@ -29,9 +29,11 @@ public class FavoritesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_favorite,container,false);
         gameRooms = HomeFragment.gameRooms;
-        for(GameRoom gr : gameRooms) {
-            arrayOfGameRoomNames.add(gr.getName());
-        }
+
+            for (GameRoom gr : gameRooms) {
+                arrayOfGameRoomNames.add(gr.getName());
+            }
+
         listView = view.findViewById(R.id.list_view);
         arrayAdapter = new ArrayAdapter<>(getContext(),
                                           android.R.layout.simple_list_item_1,
@@ -51,9 +53,7 @@ public class FavoritesFragment extends Fragment {
                 intent.putExtra("gameroom", selected);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                getActivity().finish();
-
-                
+                //getActivity().finish();
             }
         });
         return view;

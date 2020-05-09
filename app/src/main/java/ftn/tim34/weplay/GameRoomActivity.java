@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout;
 import ftn.tim34.weplay.adapters.TabPagerAdapter;
 import ftn.tim34.weplay.model.GameRoom;
 
-public class GameRoomActivity extends AppCompatActivity {
+public class GameRoomActivity extends AppCompatActivity   {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

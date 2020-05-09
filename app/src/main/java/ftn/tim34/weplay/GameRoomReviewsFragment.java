@@ -4,12 +4,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
+import ftn.tim34.weplay.model.Review;
 
 
 /**
@@ -19,7 +27,10 @@ import ftn.tim34.weplay.model.GameRoom;
  */
 public class GameRoomReviewsFragment extends Fragment {
     private GameRoom selected;
-
+    private List<Review> reviews;
+    private ListView listView;
+    private List<String> arrayReviews = new ArrayList<String>();
+    private ArrayAdapter arrayAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -69,8 +80,15 @@ public class GameRoomReviewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_game_room_reviews,container,false);
-        TextView temp = view.findViewById(R.id.temp);
-        temp.setText(selected.getName() + " je oznacena");
+        reviews = selected.getReviews();
+        for(Review e : reviews) {
+            arrayReviews.add(e.getComment() + "\tOcena:" + e.getStars());
+        }
+        listView = view.findViewById(R.id.list_view_reviews);
+        arrayAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1,
+                arrayReviews);
+        listView.setAdapter(arrayAdapter);
         return view;
     }
 }
