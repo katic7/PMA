@@ -78,14 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
-        Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
@@ -106,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new SettingsFragment()).commit();
+                break;
+            case R.id.sign_in:
+                Intent intent = new Intent(this,LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.log_out:
                 Toast.makeText(this,"Log out action", Toast.LENGTH_SHORT).show();

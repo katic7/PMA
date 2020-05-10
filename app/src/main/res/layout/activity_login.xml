@@ -44,6 +44,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/prompt_email" />
 
         <EditText
@@ -58,6 +59,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/prompt_password" />
 
         <EditText
@@ -73,6 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#ffffff"
             android:text="@string/sign_in_label_and_button" />
 
         <LinearLayout
@@ -98,6 +102,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="@string/sign_up"
                 android:textAlignment="textEnd" />
         </LinearLayout>

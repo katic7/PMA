@@ -2,6 +2,7 @@ package ftn.tim34.weplay;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.text.Html;
@@ -9,8 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +94,27 @@ public class GameRoomReviewsFragment extends Fragment {
                 android.R.layout.simple_list_item_1,
                 arrayReviews);
         listView.setAdapter(arrayAdapter);
+
+        Button mShowDialog = (Button) view.findViewById(R.id.btnShowDialog);
+        mShowDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+                View mView = getLayoutInflater().inflate(R.layout.dialog_new_review, null);
+                Button btnAddReview = (Button) mView.findViewById(R.id.btnAddReview);
+                btnAddReview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View vi) {
+                        Toast.makeText(vi.getContext(), "Review Successfuly added!", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                mBuilder.setView(mView);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
+            }
+        });
+
         return view;
     }
 }

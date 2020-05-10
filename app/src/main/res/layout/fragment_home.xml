@@ -5,15 +5,16 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.tabs.TabLayout
-        app:tabMode="fixed"
-        app:tabTextColor="#ffffff"
-        android:background="@color/colorPrimary"
         android:id="@+id/game_room_tab"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorPrimary"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="#C62828"
+        app:tabMode="fixed"
+        app:tabTextColor="#ffffff">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
