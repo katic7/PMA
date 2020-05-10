@@ -24,6 +24,13 @@
     <string name="lbl_hide_mail">"Hide my E-mail"</string>
     <string name="map_key">AIzaSyDq7qhfF3VnG4qBTA9UvmGg99sHeDIjMwc</string>
 
+    <string-array name="gamingRooms">
+        <item>GamingRoom</item>
+        <item>GamingR00m</item>
+        <item>G4m1ngR00m</item>
+
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -107,6 +108,14 @@ public class GameRoomEventsFragment extends Fragment {
                 android.R.layout.simple_list_item_1,
                 arrayEventsName);
         listView.setAdapter(arrayAdapter);
+        Button createEvent = (Button) view.findViewById(R.id.addEventbutton);
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), CreateEventActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }

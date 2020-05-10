@@ -37,6 +37,8 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
         TextView minimum = findViewById(R.id.minimumSkillLevel);
         minimum.setText(selected.getMinimumSkillLevel());
         TextView gameRoom = findViewById(R.id.gamingRoom);
+        TextView number = findViewById(R.id.number);
+        number.setText("1/5");
         gameRoom.setText(selected.getGameRoom().getName());
         if (map == null) {
             SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.details_map);

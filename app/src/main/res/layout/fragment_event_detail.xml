@@ -20,8 +20,8 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="309dp"
-        android:layout_height="545dp"
+        android:layout_width="307dp"
+        android:layout_height="557dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +82,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView119">
+            app:layout_constraintTop_toBottomOf="@id/textVIEWS">
 
             <fragment
                 android:id="@+id/details_map"
@@ -141,18 +141,54 @@
             app:layout_constraintStart_toEndOf="@+id/textView119"
             app:layout_constraintTop_toBottomOf="@+id/gamingRoom" />
 
+        <TextView
+            android:id="@+id/textVIEWS"
+            android:layout_width="169dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="20dp"
+            android:text="Number of players"
+            android:textAlignment="textStart"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView119" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="75dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            android:textAlignment="textEnd"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/textVIEWS"
+            app:layout_constraintTop_toBottomOf="@+id/deadline" />
+
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_width="164dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
             android:background="@color/colorPrimaryDark"
             android:text="JOIN"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_layout" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="164dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="SUBSCRIBE"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateEventActivity">
+
+
+    <LinearLayout
+        android:layout_width="309dp"
+        android:layout_height="645dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event name" />
+
+        <EditText
+            android:id="@+id/eName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number of players" />
+
+        <EditText
+            android:id="@+id/ePlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            />
+
+        <TextView
+            android:id="@+id/textView612"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Game" />
+
+        <EditText
+            android:id="@+id/eGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            />
+
+        <TextView
+            android:id="@+id/textView6112"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Minimum skill level" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5" />
+
+        <TextView
+            android:id="@+id/textView61112"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deadline" />
+
+        <Button
+            android:id="@+id/buttonDate"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:text="Choose date" />
+
+        <TextView
+            android:id="@+id/textView3611112"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GamingRoom" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="CREATE"
+
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
