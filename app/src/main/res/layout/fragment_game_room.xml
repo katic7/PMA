@@ -40,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.014" />
+            app:layout_constraintVertical_bias="0.032" />
 
         <TextView
             android:id="@+id/textView12"
@@ -49,8 +49,9 @@
             android:layout_marginTop="48dp"
             android:text="Price per hour"
             android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar2"
-            tools:layout_editor_absoluteX="32dp" />
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/pricePerHour"
@@ -60,8 +61,9 @@
             android:layout_marginTop="48dp"
             android:text="TextView"
             android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
 
@@ -72,8 +74,9 @@
             android:layout_marginTop="24dp"
             android:text="Phone number"
             android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@+id/textView12"
-            tools:layout_editor_absoluteX="32dp" />
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/phoneNumber"
@@ -83,8 +86,9 @@
             android:layout_marginTop="24dp"
             android:text="TextView"
             android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/pricePerHour" />
 
@@ -96,8 +100,9 @@
             android:layout_marginTop="68dp"
             android:text="TextView"
             android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.617"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/pricePerHour" />
 
@@ -105,11 +110,12 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Working hours"
             android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@+id/textView14"
-            tools:layout_editor_absoluteX="32dp" />
+            tools:layout_editor_absoluteX="0dp" />
 
         <FrameLayout
             android:id="@+id/address_layout"

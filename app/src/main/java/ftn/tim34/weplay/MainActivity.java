@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             gameRooms.get(3).getReviews().add(new Review("Nemanja", "Odlicna igraonica8", Float.parseFloat("4.3")));
             gameRooms.get(3).getReviews().add(new Review("Nemanja", "Odlicna igraonica9", Float.parseFloat("4.54")));
 
-            gameRooms.get(0).getEvents().add(new Event("Event 1", "League Of Legends", 5, 3, gameRooms.get(0), new Date()));
-            gameRooms.get(0).getEvents().add(new Event("Event 2", "League Of Legends", 5, 3, gameRooms.get(0), new Date()));
-            gameRooms.get(0).getEvents().add(new Event("Event 3", "League Of Legends", 5, 3, gameRooms.get(0), new Date()));
-            gameRooms.get(1).getEvents().add(new Event("Event 4", "League Of Legends", 5, 3, gameRooms.get(1), new Date()));
-            gameRooms.get(1).getEvents().add(new Event("Event 5", "League Of Legends", 5, 3, gameRooms.get(1), new Date()));
-            gameRooms.get(1).getEvents().add(new Event("Event 6", "League Of Legends", 5, 3, gameRooms.get(1), new Date()));
-            gameRooms.get(2).getEvents().add(new Event("Event 7", "League Of Legends", 5, 3, gameRooms.get(2), new Date()));
+            gameRooms.get(0).getEvents().add(new Event("Event 1", "League Of Legends", 5, 3, gameRooms.get(0), new Date(),  "medium"));
+            gameRooms.get(0).getEvents().add(new Event("Event 2", "League Of Legends", 5, 3, gameRooms.get(0), new Date(), "medium"));
+            gameRooms.get(0).getEvents().add(new Event("Event 3", "League Of Legends", 5, 3, gameRooms.get(0), new Date(), "medium"));
+            gameRooms.get(1).getEvents().add(new Event("Event 4", "League Of Legends", 5, 3, gameRooms.get(1), new Date(), "medium"));
+            gameRooms.get(1).getEvents().add(new Event("Event 5", "League Of Legends", 5, 3, gameRooms.get(1), new Date(), "medium"));
+            gameRooms.get(1).getEvents().add(new Event("Event 6", "League Of Legends", 5, 3, gameRooms.get(1), new Date(), "medium"));
+            gameRooms.get(2).getEvents().add(new Event("Event 7", "League Of Legends", 5, 3, gameRooms.get(2), new Date(), "medium"));
         }
 
         drawer = findViewById(R.id.drawer_layout);

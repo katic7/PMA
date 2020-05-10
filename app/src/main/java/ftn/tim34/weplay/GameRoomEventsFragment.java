@@ -1,12 +1,15 @@
 package ftn.tim34.weplay;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -84,6 +87,22 @@ public class GameRoomEventsFragment extends Fragment {
             arrayEventsName.add(e.getName());
         }
         listView = view.findViewById(R.id.list_view_events);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Event selected = new Event();
+                for(Event g : events) {
+                    if(g.getName().equals(arrayEventsName.get(position))) {
+                        selected = g;
+                    }
+                }
+                Intent intent = new Intent(view.getContext(), EventDetailsActivity.class);
+                intent.putExtra("event", selected);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
+            }
+        });
         arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
                 arrayEventsName);

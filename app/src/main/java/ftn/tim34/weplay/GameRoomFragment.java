@@ -20,6 +20,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
+import java.util.Map;
+
 import ftn.tim34.weplay.model.GameRoom;
 
 
@@ -92,6 +94,7 @@ public class GameRoomFragment extends Fragment implements OnMapReadyCallback {
         TextView workingHours = (TextView) view.findViewById(R.id.workingHours);
         workingHours.setText(selected.getWorking_hours());
         rating.setNumStars(5);
+        rating.setIsIndicator(true);
         rating.setMax(5);
         if (map == null) {
             SupportMapFragment mapFrag = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.details_map);
@@ -111,5 +114,6 @@ public class GameRoomFragment extends Fragment implements OnMapReadyCallback {
         LatLng sydney = new LatLng( 45.207771, 19.716572);
         map.addMarker(new MarkerOptions().position(sydney).title("Beocin"));
         map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,16));
     }
 }
