@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.adapters.CustomEventList;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
 
@@ -104,10 +105,11 @@ public class GameRoomEventsFragment extends Fragment {
 
             }
         });
-        arrayAdapter = new ArrayAdapter<>(getContext(),
+        /*arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
-                arrayEventsName);
-        listView.setAdapter(arrayAdapter);
+                arrayEventsName);*/
+        CustomEventList adapter = new CustomEventList(getContext(), events);
+        listView.setAdapter(adapter);
 
         Button createEvent = (Button) view.findViewById(R.id.addEventbutton);
         createEvent.setOnClickListener(new View.OnClickListener() {

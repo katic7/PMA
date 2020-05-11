@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
 
 public class FavoritesFragment extends Fragment {
@@ -35,10 +36,12 @@ public class FavoritesFragment extends Fragment {
             }
 
         listView = view.findViewById(R.id.list_view);
-        arrayAdapter = new ArrayAdapter<>(getContext(),
+        /*arrayAdapter = new ArrayAdapter<>(getContext(),
                                           android.R.layout.simple_list_item_1,
-                                          arrayOfGameRoomNames);
-        listView.setAdapter(arrayAdapter);
+                                          arrayOfGameRoomNames);*/
+
+        CustomGameRoomList adapter = new CustomGameRoomList(getContext(), gameRooms);
+        listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

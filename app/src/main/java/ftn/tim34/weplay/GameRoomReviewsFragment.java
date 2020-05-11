@@ -20,6 +20,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.adapters.CustomReviewList;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.model.Review;
@@ -90,10 +91,11 @@ public class GameRoomReviewsFragment extends Fragment {
             arrayReviews.add(e.getComment() + "\tOcena:" + e.getStars());
         }
         listView = view.findViewById(R.id.list_view_reviews);
-        arrayAdapter = new ArrayAdapter<>(getContext(),
+       /* arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
-                arrayReviews);
-        listView.setAdapter(arrayAdapter);
+                arrayReviews);*/
+        CustomReviewList adapter = new CustomReviewList(getContext(), reviews);
+        listView.setAdapter(adapter);
 
         Button mShowDialog = (Button) view.findViewById(R.id.btnShowDialog);
         mShowDialog.setOnClickListener(new View.OnClickListener() {

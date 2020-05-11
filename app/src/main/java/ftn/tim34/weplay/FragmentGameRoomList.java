@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
 
 
@@ -80,10 +82,12 @@ public class FragmentGameRoomList extends Fragment {
         for(GameRoom gr : gameRooms) {
             arrayOfGameRoomNames.add(gr.getName());
         }
-        arrayAdapter = new ArrayAdapter<>(getContext(),
+        CustomGameRoomList adapter = new CustomGameRoomList(getContext(),gameRooms);
+        gameList.setAdapter(adapter);
+        /*arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
                 arrayOfGameRoomNames);
-        gameList.setAdapter(arrayAdapter);
+        gameList.setAdapter(arrayAdapter);*/
         gameList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -95,7 +99,7 @@ public class FragmentGameRoomList extends Fragment {
                         selected = g;
                     }
                 }
-                Toast.makeText(getActivity(),selected.getName(), Toast.LENGTH_SHORT).show();
+
                 intent.putExtra("gameroom", selected);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

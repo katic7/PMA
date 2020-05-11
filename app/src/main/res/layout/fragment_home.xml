@@ -12,7 +12,7 @@
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorColor="#C62828"
+        app:tabIndicatorColor="@color/colorAccent"
         app:tabMode="fixed"
         app:tabTextColor="#ffffff">
 

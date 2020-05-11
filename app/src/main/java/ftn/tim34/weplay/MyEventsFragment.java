@@ -16,6 +16,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.adapters.CustomEventList;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
 
@@ -97,10 +98,11 @@ public class MyEventsFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        arrayAdapter = new ArrayAdapter<>(getContext(),
+        /*arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
-                arrayEventsName);
-        listView.setAdapter(arrayAdapter);
+                arrayEventsName);*/
+        CustomEventList adapter = new CustomEventList(getContext(), events);
+        listView.setAdapter(adapter);
         return view;
     }
 }
