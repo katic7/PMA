@@ -67,8 +67,6 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         String date = "Selected Date : " + dayOfMonth + "-" + monthOfYear + "-" + year;
-        
-
         Toast.makeText(CreateEventActivity.this, date, Toast.LENGTH_LONG).show();
     }
 }

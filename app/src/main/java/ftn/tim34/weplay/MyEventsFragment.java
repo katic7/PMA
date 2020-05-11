@@ -91,7 +91,7 @@ public class MyEventsFragment extends Fragment {
                         selected = g;
                     }
                 }
-                Intent intent = new Intent(view.getContext(), EventDetailsActivity.class);
+                Intent intent = new Intent(view.getContext(), EventInformationsActivity.class);
                 intent.putExtra("event", selected);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

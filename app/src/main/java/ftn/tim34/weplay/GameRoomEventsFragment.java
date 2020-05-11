@@ -108,6 +108,7 @@ public class GameRoomEventsFragment extends Fragment {
                 android.R.layout.simple_list_item_1,
                 arrayEventsName);
         listView.setAdapter(arrayAdapter);
+
         Button createEvent = (Button) view.findViewById(R.id.addEventbutton);
         createEvent.setOnClickListener(new View.OnClickListener() {
             @Override

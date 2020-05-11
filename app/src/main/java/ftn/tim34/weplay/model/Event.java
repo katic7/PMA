@@ -1,7 +1,9 @@
 package ftn.tim34.weplay.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Event implements Serializable {
     String name;
@@ -11,6 +13,7 @@ public class Event implements Serializable {
     String minimumSkillLevel;
     GameRoom gameRoom;
     Date deadline;
+    List<EventInformation> news = new ArrayList<>();
 
     public Event() {
 
@@ -24,6 +27,26 @@ public class Event implements Serializable {
         this.gameRoom = gameRoom;
         this.deadline = deadline;
         this.minimumSkillLevel = minimumSkillLevel;
+    }
+
+
+    public Event(String name, String game, Integer numberOfPlayers, Integer numberOfActivePlayers, String minimumSkillLevel, GameRoom gameRoom, Date deadline, List<EventInformation> news) {
+        this.name = name;
+        this.game = game;
+        this.numberOfPlayers = numberOfPlayers;
+        this.numberOfActivePlayers = numberOfActivePlayers;
+        this.minimumSkillLevel = minimumSkillLevel;
+        this.gameRoom = gameRoom;
+        this.deadline = deadline;
+        this.news = news;
+    }
+
+    public List<EventInformation> getNews() {
+        return news;
+    }
+
+    public void setNews(List<EventInformation> news) {
+        this.news = news;
     }
 
     public String getName() {

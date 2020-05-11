@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import ftn.tim34.weplay.model.Event;
+import ftn.tim34.weplay.model.EventInformation;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.model.Review;
 
@@ -62,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             gameRooms.get(1).getEvents().add(new Event("Event 5", "League Of Legends", 5, 3, gameRooms.get(1), new Date(), "medium"));
             gameRooms.get(1).getEvents().add(new Event("Event 6", "League Of Legends", 5, 3, gameRooms.get(1), new Date(), "medium"));
             gameRooms.get(2).getEvents().add(new Event("Event 7", "League Of Legends", 5, 3, gameRooms.get(2), new Date(), "medium"));
+            gameRooms.get(0).getEvents().get(0).getNews().add(new EventInformation(new Date(), "Nemanja","1:0", "Odlicna borba1!"));
+            gameRooms.get(0).getEvents().get(0).getNews().add(new EventInformation(new Date(), "Nemanja","1:1", "Odlicna borba2!"));
+            gameRooms.get(0).getEvents().get(0).getNews().add(new EventInformation(new Date(), "Nemanja","2:1", "Odlicna borba3!"));
+            gameRooms.get(0).getEvents().get(0).getNews().add(new EventInformation(new Date(), "Nemanja","3:1", "Odlicna borba4!"));
+            gameRooms.get(0).getEvents().get(0).getNews().add(new EventInformation(new Date(), "Nemanja","3:1", "Gotova odlicna borba!"));
+
         }
 
         drawer = findViewById(R.id.drawer_layout);
