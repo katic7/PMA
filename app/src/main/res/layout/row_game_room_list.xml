@@ -7,7 +7,7 @@
         android:layout_rowSpan="2"
         android:layout_width="80dp"
         android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher_round"
+        android:src="@drawable/game_room"
         android:scaleType="fitXY"
         android:id="@+id/imageViewFlag"
         android:layout_row="0"
