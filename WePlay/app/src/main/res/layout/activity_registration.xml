@@ -105,7 +105,7 @@
             android:text="@string/cbox_i_agree" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
