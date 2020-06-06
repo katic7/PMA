@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.json.simple.JSONObject;
+
 import rs.ac.uns.ftn.weplayserver.dto.UserDTO;
 import rs.ac.uns.ftn.weplayserver.security.TokenUtils;
 import rs.ac.uns.ftn.weplayserver.security.auth.JwtAuthenticationRequest;
 import rs.ac.uns.ftn.weplayserver.service.LoginServiceImpl;
+
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -28,7 +31,7 @@ public class AuthController {
     LoginServiceImpl loginService;
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException, IOException {
         UserDTO user=loginService.login(authenticationRequest);
         if(user!=null){
@@ -40,11 +43,10 @@ public class AuthController {
 
     }
 
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public UserDTO register(@RequestBody UserDTO userDTO)
-    {
-        return loginService.register(userDTO);
+    @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
+        UserDTO u = loginService.register(userDTO);
+        return new ResponseEntity<>(u, HttpStatus.CREATED);
     }
 
 

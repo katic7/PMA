@@ -75,7 +75,7 @@
             android:text="@string/prompt_email" />
 
         <EditText
-            android:id="@+id/tfEmail"
+            android:id="@+id/tfEmailReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -90,7 +90,7 @@
             android:text="@string/prompt_password" />
 
         <EditText
-            android:id="@+id/tfPassword"
+            android:id="@+id/tfPasswordReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -111,7 +111,8 @@
             android:layout_marginBottom="10dp"
             android:background="@color/colorPrimaryDark"
             android:textColor="#ffffff"
-            android:text="@string/btn_continue" />
+            android:text="@string/btn_continue"
+            android:onClick="registerButtonAction"/>
 
         <LinearLayout
             android:layout_width="match_parent"

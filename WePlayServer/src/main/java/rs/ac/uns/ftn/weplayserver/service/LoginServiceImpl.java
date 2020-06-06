@@ -64,12 +64,11 @@ public class LoginServiceImpl implements  LoginService{
     public UserDTO register(UserDTO userDTO) {
         User user = new User();
 
-        if(userRepository.findByEmail(userDTO.getUsername()) != null){
+        if(userRepository.findByEmail(userDTO.getEmail()) != null){
             userDTO.setId(null);
             return userDTO;
         }
 
-        user.setUsername(userDTO.getUsername());
         user.setLastName(userDTO.getLastName());
         user.setEnabled(true);
         user.setFirstName(userDTO.getFirstName());
@@ -89,7 +88,7 @@ public class LoginServiceImpl implements  LoginService{
 
     @Override
     public UserDTO login(JwtAuthenticationRequest request) {
-        User user=userRepository.findOneByUsername(request.getUsername());
+        User user=userRepository.findByEmail(request.getUsername());
         if(user!=null){
             if(passwordEncoder.matches(request.getPassword(),user.getPassword())){
                 String jwt = tokenUtils.generateToken(request.getUsername());

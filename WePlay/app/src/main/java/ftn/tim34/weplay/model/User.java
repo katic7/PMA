@@ -1,22 +1,30 @@
 package ftn.tim34.weplay.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     @SerializedName("firstName")
+    @Expose
     private String firstName;
 
     @SerializedName("lastName")
+    @Expose
     private String lastName;
 
     @SerializedName("email")
+    @Expose
     private String email;
 
     @SerializedName("password")
+    @Expose
     private String password;
 
     @SerializedName("gamingSkill")
+    @Expose
     private float gamingSkill;
 
     public User(){}
