@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,11 @@ import ftn.tim34.weplay.adapters.HomeTabPagerAdapter;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.model.Review;
+import ftn.tim34.weplay.service.ServiceUtils;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
@@ -35,4 +41,6 @@ public class HomeFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
         return view;
     }
+
+
 }

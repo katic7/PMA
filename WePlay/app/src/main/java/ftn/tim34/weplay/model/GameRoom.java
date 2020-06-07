@@ -1,30 +1,56 @@
 package ftn.tim34.weplay.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameRoom implements Serializable {
+    @SerializedName("id")
+    Long id;
+
+    @SerializedName("name")
     String name;
-    Integer price_per_hour;
+
+    @SerializedName("capacity")
+    private int capacity;
+
+    @SerializedName("price_per_hour")
+    int price_per_hour;
+
+    @SerializedName("working_hours")
     String working_hours;
+
+    @SerializedName("phoneNumber")
     String phoneNumber;
-    Float rating;
+
+    @SerializedName("rating")
+    float rating;
+
+    @SerializedName("address")
+    private Address address;
+
+    @SerializedName("events")
     List<Event> events = new ArrayList<Event>();
+
+    @SerializedName("reviews")
     List<Review> reviews = new ArrayList<Review>();
 
     public GameRoom() {
         super();
     }
 
-    public GameRoom(String name, Integer price_per_hour, String working_hours, String phoneNumber, Float rating) {
+    public GameRoom(Long id,String name, Integer price_per_hour, String working_hours, String phoneNumber, float rating, Address adr) {
         super();
+        this.id = id;
         this.name = name;
         this.price_per_hour = price_per_hour;
         this.working_hours = working_hours;
         this.phoneNumber = phoneNumber;
         this.rating = rating;
+        this.address = adr;
     }
 
     public String getName() {
@@ -59,11 +85,11 @@ public class GameRoom implements Serializable {
         this.phoneNumber = phone;
     }
 
-    public Float getRating() {
+    public float getRating() {
         return this.rating;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 
@@ -85,5 +111,33 @@ public class GameRoom implements Serializable {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public void setPrice_per_hour(int price_per_hour) {
+        this.price_per_hour = price_per_hour;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }

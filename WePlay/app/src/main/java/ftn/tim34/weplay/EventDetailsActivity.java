@@ -26,32 +26,34 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_event_detail);
         Bundle extras = getIntent().getExtras();
-        Event selected = (Event) extras.get("event");
+        selected = (Event) extras.get("event");
         TextView naslov = findViewById(R.id.temp);
-        naslov.setText(selected.getName());
 
         TextView game = findViewById(R.id.game);
-        game.setText(selected.getGame());
         TextView deadline = findViewById(R.id.deadline);
-        deadline.setText("25.05.2020.");
         TextView minimum = findViewById(R.id.minimumSkillLevel);
-        minimum.setText(selected.getMinimumSkillLevel());
         TextView gameRoom = findViewById(R.id.gamingRoom);
         TextView number = findViewById(R.id.number);
-        number.setText("1/5");
-        gameRoom.setText(selected.getGameRoom().getName());
+
+        game.setText(selected.getGame());
+        deadline.setText(selected.getDeadline().toString());
+        gameRoom.setText(selected.getGameRoom());
+        naslov.setText(selected.getName());
+        number.setText(selected.getNumberOfActivePlayers() + "/" + selected.getNumberOfPlayers());
+        minimum.setText("3");
         if (map == null) {
             SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.details_map);
             mapFrag.getMapAsync(this);
         }
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map=googleMap;
 
-        LatLng sydney = new LatLng( 45.207771, 19.716572);
-        map.addMarker(new MarkerOptions().position(sydney).title("Beocin"));
+        LatLng sydney = new LatLng( selected.getLat(), selected.getLon());
+        map.addMarker(new MarkerOptions().position(sydney).title(selected.getGameRoom()));
         map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,16));
 

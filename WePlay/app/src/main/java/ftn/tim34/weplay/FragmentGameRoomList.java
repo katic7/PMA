@@ -19,6 +19,11 @@ import java.util.List;
 
 import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
+import ftn.tim34.weplay.service.ServiceUtils;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -31,6 +36,7 @@ public class FragmentGameRoomList extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ListView gameList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -77,36 +83,31 @@ public class FragmentGameRoomList extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_game_room_list,container,false);
 
-        ListView gameList = view.findViewById(R.id.game_room_list);
-        gameRooms = MainActivity.gameRooms;
-        for(GameRoom gr : gameRooms) {
-            arrayOfGameRoomNames.add(gr.getName());
-        }
-        CustomGameRoomList adapter = new CustomGameRoomList(getContext(),gameRooms);
-        gameList.setAdapter(adapter);
-        /*arrayAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1,
-                arrayOfGameRoomNames);
-        gameList.setAdapter(arrayAdapter);*/
-        gameList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gameList = view.findViewById(R.id.game_room_list);
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        final Call<List<GameRoom>> call = ServiceUtils.gameRoomService.getAll();
+        call.enqueue(new Callback<List<GameRoom>>() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(view.getContext(), GameRoomActivity.class);
-                GameRoom selected = new GameRoom();
-                for(GameRoom g : gameRooms) {
-                    if(g.getName().equals(arrayOfGameRoomNames.get(position))) {
-                        selected = g;
-                    }
+            public void onResponse(Call<List<GameRoom>> call, Response<List<GameRoom>> response) {
+                if(response.code() == 200){
+                    CustomGameRoomList adapter = new CustomGameRoomList(getContext(),response.body());
+                    gameList.setAdapter(adapter);
+                }else{
+                    Toast.makeText(getContext(), "Došlo je do greške.", Toast.LENGTH_LONG).show();
                 }
+            }
 
-                intent.putExtra("gameroom", selected);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+            @Override
+            public void onFailure(Call<List<GameRoom>> call, Throwable t) {
+
             }
         });
 
-
-        return view;
+        super.onResume();
     }
+
 }

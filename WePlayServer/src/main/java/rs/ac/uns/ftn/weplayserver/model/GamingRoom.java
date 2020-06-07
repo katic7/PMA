@@ -22,9 +22,24 @@ public class GamingRoom {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private int capacity;
+    
+    @Column(nullable = false)
+    private int price_per_hour;
+
+    @Column(nullable = false)
+    private String working_hours;
+
+    @Column(nullable = false)
+    private String phoneNumber;
+
+    @Column(nullable = false)
+    private float rating;
+
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,

@@ -35,6 +35,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rating">Rating</string>
     <string name="lbl_comm">Your comment</string>
+    <string name="myLoaction">Moja lokacija</string>
+    <string name="alert_title">Ukljuci lokaciju</string>
+    <string name="alert_message">Molimo Vas da ukljucite lokaciju da bi aplikacija mogla normalno da funckionise</string>
 
 
 </resources>

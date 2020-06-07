@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -18,11 +19,11 @@ public class GameRoomActivity extends AppCompatActivity   {
         setContentView(R.layout.activity_game_room);
 
         Bundle extras = getIntent().getExtras();
-        GameRoom selected = (GameRoom) extras.get("gameroom");
+        GameRoom gr = (GameRoom) extras.get("gameRoom");
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.game_room_tabs_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager_events);
-        viewPager.setAdapter(new TabPagerAdapter(this.getSupportFragmentManager(), selected));
+        viewPager.setAdapter(new TabPagerAdapter(this.getSupportFragmentManager(), gr));
         tabLayout.setupWithViewPager(viewPager);
 
     }

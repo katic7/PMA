@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,9 +94,7 @@ public class GameRoomFragment extends Fragment implements OnMapReadyCallback {
         TextView phone = (TextView) view.findViewById(R.id.phoneNumber);
         TextView workingHours = (TextView) view.findViewById(R.id.workingHours);
         workingHours.setText(selected.getWorking_hours());
-        rating.setNumStars(5);
         rating.setIsIndicator(true);
-        rating.setMax(5);
         if (map == null) {
             SupportMapFragment mapFrag = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.details_map);
             mapFrag.getMapAsync(this);

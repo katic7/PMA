@@ -21,6 +21,10 @@ import java.util.List;
 import ftn.tim34.weplay.adapters.CustomEventList;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
+import ftn.tim34.weplay.service.ServiceUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -84,32 +88,9 @@ public class GameRoomEventsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_game_room_events,container,false);
-        events = selected.getEvents();
-        for(Event e : events) {
-            arrayEventsName.add(e.getName());
-        }
         listView = view.findViewById(R.id.list_view_events);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Event selected = new Event();
-                for(Event g : events) {
-                    if(g.getName().equals(arrayEventsName.get(position))) {
-                        selected = g;
-                    }
-                }
-                Intent intent = new Intent(view.getContext(), EventDetailsActivity.class);
-                intent.putExtra("event", selected);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-
-            }
-        });
-        /*arrayAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1,
-                arrayEventsName);*/
-        CustomEventList adapter = new CustomEventList(getContext(), events);
-        listView.setAdapter(adapter);
+        //      CustomEventList adapter = new CustomEventList(getContext(), events);
+//        listView.setAdapter(adapter);
 
         Button createEvent = (Button) view.findViewById(R.id.addEventbutton);
         createEvent.setOnClickListener(new View.OnClickListener() {
@@ -120,5 +101,25 @@ public class GameRoomEventsFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        final Call<List<Event>> call = ServiceUtils.eventService.getAllGamingRoomEvents(selected.getId());
+        call.enqueue(new Callback<List<Event>>() {
+            @Override
+            public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
+                if(response.code() == 200){
+                    CustomEventList adapter = new CustomEventList(getContext(), response.body());
+                    listView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Event>> call, Throwable t) {
+
+            }
+        });
+        super.onResume();
     }
 }

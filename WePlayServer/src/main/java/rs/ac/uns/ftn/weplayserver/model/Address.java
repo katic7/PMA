@@ -24,7 +24,11 @@ public class Address {
     private String country;
 
     private String postalCode;
-
+    
+    private double lat;
+    
+    private double lon;
+    
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "gaming_room_id", nullable = false)
     private GamingRoom gamingRoom;

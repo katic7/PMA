@@ -1,25 +1,49 @@
 package ftn.tim34.weplay.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Event implements Serializable {
+
+    @SerializedName("name")
     String name;
+
+    @SerializedName("game")
     String game;
-    Integer numberOfPlayers;
-    Integer numberOfActivePlayers;
+
+    @SerializedName("numbOfPlayers")
+    int numberOfPlayers;
+
+    @SerializedName("participants")
+    int numberOfActivePlayers;
+
+
     String minimumSkillLevel;
-    GameRoom gameRoom;
+
+    @SerializedName("gameRoom")
+    String gameRoom;
+
+    @SerializedName("joinDeadline")
     Date deadline;
+
+    @SerializedName("lat")
+    double lat;
+
+    @SerializedName("lon")
+    double lon;
+
+
     List<EventInformation> news = new ArrayList<>();
 
     public Event() {
 
     }
 
-    public Event(String name, String game, Integer numberOfPlayers, Integer numberOfActivePlayers, GameRoom gameRoom, Date deadline, String minimumSkillLevel) {
+    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String gameRoom, Date deadline, String minimumSkillLevel) {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
@@ -30,7 +54,7 @@ public class Event implements Serializable {
     }
 
 
-    public Event(String name, String game, Integer numberOfPlayers, Integer numberOfActivePlayers, String minimumSkillLevel, GameRoom gameRoom, Date deadline, List<EventInformation> news) {
+    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String minimumSkillLevel, String gameRoom, Date deadline, List<EventInformation> news) {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
@@ -65,27 +89,27 @@ public class Event implements Serializable {
         this.game = game;
     }
 
-    public Integer getNumberOfPlayers() {
+    public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
-    public void setNumberOfPlayers(Integer numberOfPlayers) {
+    public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
     }
 
-    public Integer getNumberOfActivePlayers() {
+    public int getNumberOfActivePlayers() {
         return numberOfActivePlayers;
     }
 
-    public void setNumberOfActivePlayers(Integer numberOfActivePlayers) {
+    public void setNumberOfActivePlayers(int numberOfActivePlayers) {
         this.numberOfActivePlayers = numberOfActivePlayers;
     }
 
-    public GameRoom getGameRoom() {
+    public String getGameRoom() {
         return gameRoom;
     }
 
-    public void setGameRoom(GameRoom gameRoom) {
+    public void setGameRoom(String gameRoom) {
         this.gameRoom = gameRoom;
     }
 
@@ -103,5 +127,21 @@ public class Event implements Serializable {
 
     public void setMinimumSkillLevel(String minimumSkillLevel) {
         this.minimumSkillLevel = minimumSkillLevel;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public void setLon(double lon) {
+        this.lon = lon;
     }
 }
