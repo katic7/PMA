@@ -1,13 +1,10 @@
 package ftn.tim34.weplay.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -17,8 +14,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import ftn.tim34.weplay.GameRoomActivity;
-import ftn.tim34.weplay.MainActivity;
+import ftn.tim34.weplay.activities.GameRoomActivity;
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.GameRoom;
 

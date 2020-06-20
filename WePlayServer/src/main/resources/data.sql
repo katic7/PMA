@@ -19,10 +19,13 @@ insert into address (id, city, country, postal_code, street, gaming_room_id, lat
 insert into address (id, city, country, postal_code, street, gaming_room_id, lat, lon) values (9,"Novi Sad","Srbija", "21000", "Stevana Musica 11", 9, 45.25005,19.8519);
 
 --users
-insert into user (id, email, enabled, first_name, gaming_skill, last_name, last_password_reset_date, password, username) values (1, "katicmilan7@gmail.com",1, "Milan", 5, "Katic", "2020-01-20","123321","katic");
+insert into user (id, email, enabled, first_name, gaming_skill, last_name, last_password_reset_date, password) values (1, "katicmilan7@gmail.com",1, "Milan", 5, "Katic", "2020-01-20","123321");
 
 --games
 insert into game (id, name, type) values (1, "Counter Strike", "Pucacina");
 
 --events
 insert into event (id, date_time, description, join_deadline, name, numb_of_players, creator_id, game_id, gaming_room_id) values (1, "2020-06-20 12:12:12", "Amaterski turnir - nagrada 10.000RSD","2020-06-20 20:00:00", "CS GO Turnir", 15, 1, 1, 1);
+
+--reviews
+insert into review (id, comment, rating, gaming_room_id, user_id) values (1, "Solidna igraonica, mana je sto ima puno klinaca", 4.0, 1, 1);

@@ -1,22 +1,15 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.logging.Logger;
-
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.User;
 import ftn.tim34.weplay.service.ServiceUtils;
 

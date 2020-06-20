@@ -1,11 +1,9 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +17,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import org.w3c.dom.Text;
-
-import java.util.Map;
-
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.GameRoom;
 
 
@@ -110,9 +105,9 @@ public class GameRoomFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         map=googleMap;
 
-        LatLng sydney = new LatLng( 45.207771, 19.716572);
-        map.addMarker(new MarkerOptions().position(sydney).title("Beocin"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,16));
+        LatLng room = new LatLng( selected.getAddress().getLat(), selected.getAddress().getLon());
+        map.addMarker(new MarkerOptions().position(room).title(selected.getName()));
+        map.moveCamera(CameraUpdateFactory.newLatLng(room));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(room,16));
     }
 }

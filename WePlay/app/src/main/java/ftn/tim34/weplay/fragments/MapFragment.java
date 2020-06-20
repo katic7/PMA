@@ -1,4 +1,4 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.Manifest;
 import android.content.Context;
@@ -36,15 +36,16 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.R;
+import ftn.tim34.weplay.activities.GameRoomActivity;
 import ftn.tim34.weplay.dialogs.LocationDialog;
-import ftn.tim34.weplay.model.GamingRoomMap;
+import ftn.tim34.weplay.dto.GamingRoomMap;
 import ftn.tim34.weplay.service.ServiceUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback, LocationListener {
-
+public class MapFragment extends Fragment implements OnMapReadyCallback, LocationListener {
     GoogleMap map;
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private LocationManager locationManager;
@@ -58,14 +59,8 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_game_room_map, container, false);
-        if (map == null) {
-            SupportMapFragment mapFrag = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.details_map);
-            mapFrag.getMapAsync(this);
-        }
-        return view;
+        return inflater.inflate(R.layout.fragment_map, container, false);
     }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,7 +78,7 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
 
         //lepnjenje fragmenta na view group
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.details_map, supportMapFragment).commit();
+        transaction.replace(R.id.map, supportMapFragment).commit();
 
         supportMapFragment.getMapAsync(this);
     }

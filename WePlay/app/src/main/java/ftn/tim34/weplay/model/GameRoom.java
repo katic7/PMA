@@ -3,9 +3,10 @@ package ftn.tim34.weplay.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
+import ftn.tim34.weplay.dto.Review;
 
 public class GameRoom implements Serializable {
     @SerializedName("id")

@@ -1,10 +1,9 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,18 +13,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.adapters.HomeTabPagerAdapter;
-import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
-import ftn.tim34.weplay.model.Review;
-import ftn.tim34.weplay.service.ServiceUtils;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 

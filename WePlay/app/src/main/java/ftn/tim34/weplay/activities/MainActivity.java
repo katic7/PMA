@@ -1,4 +1,4 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,22 +9,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import ftn.tim34.weplay.model.Event;
-import ftn.tim34.weplay.model.EventInformation;
+import ftn.tim34.weplay.fragments.FavoritesFragment;
+import ftn.tim34.weplay.fragments.HomeFragment;
+import ftn.tim34.weplay.fragments.MyEventsFragment;
+import ftn.tim34.weplay.R;
+import ftn.tim34.weplay.fragments.SettingsFragment;
 import ftn.tim34.weplay.model.GameRoom;
-import ftn.tim34.weplay.model.Review;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,19 +1,15 @@
-package ftn.tim34.weplay;
-
-import androidx.appcompat.app.AppCompatActivity;
+package ftn.tim34.weplay.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import ftn.tim34.weplay.dto.CredentialsDTO;
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.User;
 import ftn.tim34.weplay.service.ServiceUtils;
 import okhttp3.ResponseBody;

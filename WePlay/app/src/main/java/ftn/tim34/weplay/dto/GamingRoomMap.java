@@ -1,4 +1,4 @@
-package ftn.tim34.weplay.model;
+package ftn.tim34.weplay.dto;
 
 public class GamingRoomMap {
 

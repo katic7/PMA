@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ftn.tim34.weplay.R;
-import ftn.tim34.weplay.model.GameRoom;
-import ftn.tim34.weplay.model.Review;
+import ftn.tim34.weplay.dto.Review;
 
 public class CustomReviewList extends BaseAdapter {
 

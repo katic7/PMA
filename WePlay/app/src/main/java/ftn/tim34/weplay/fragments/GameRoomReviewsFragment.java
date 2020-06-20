@@ -1,29 +1,29 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.adapters.CustomReviewList;
-import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
-import ftn.tim34.weplay.model.Review;
+import ftn.tim34.weplay.dto.Review;
+import ftn.tim34.weplay.service.ServiceUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -91,11 +91,8 @@ public class GameRoomReviewsFragment extends Fragment {
             arrayReviews.add(e.getComment() + "\tOcena:" + e.getStars());
         }
         listView = view.findViewById(R.id.list_view_reviews);
-       /* arrayAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1,
-                arrayReviews);*/
-        CustomReviewList adapter = new CustomReviewList(getContext(), reviews);
-        listView.setAdapter(adapter);
+
+
 
         Button mShowDialog = (Button) view.findViewById(R.id.btnShowDialog);
         mShowDialog.setOnClickListener(new View.OnClickListener() {
@@ -118,5 +115,26 @@ public class GameRoomReviewsFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        final Call<List<Review>> call = ServiceUtils.reviewService.getAllReviews(selected.getId());
+        call.enqueue(new Callback<List<Review>>() {
+            @Override
+            public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {
+                if(response.code() == 200){
+                    CustomReviewList adapter = new CustomReviewList(getContext(), response.body());
+                    listView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Review>> call, Throwable t) {
+
+            }
+        });
     }
 }

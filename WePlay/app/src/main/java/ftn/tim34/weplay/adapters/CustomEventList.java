@@ -15,10 +15,9 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import ftn.tim34.weplay.EventDetailsActivity;
+import ftn.tim34.weplay.activities.EventDetailsActivity;
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.Event;
-import ftn.tim34.weplay.model.GameRoom;
 
 public class CustomEventList extends BaseAdapter {
 

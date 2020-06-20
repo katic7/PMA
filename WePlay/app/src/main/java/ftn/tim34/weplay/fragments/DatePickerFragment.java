@@ -1,4 +1,4 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

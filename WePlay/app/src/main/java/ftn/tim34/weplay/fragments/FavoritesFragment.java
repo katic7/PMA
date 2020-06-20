@@ -1,4 +1,4 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.R;
+import ftn.tim34.weplay.activities.GameRoomActivity;
+import ftn.tim34.weplay.activities.MainActivity;
 import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
 

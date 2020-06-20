@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import ftn.tim34.weplay.FragmentGameRoomList;
-import ftn.tim34.weplay.GameRoomMapFragment;
+import ftn.tim34.weplay.fragments.FragmentGameRoomList;
+import ftn.tim34.weplay.fragments.GameRoomMapFragment;
 
 public class HomeTabPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -4,13 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 
-import ftn.tim34.weplay.GameRoomEventsFragment;
-import ftn.tim34.weplay.GameRoomFragment;
-import ftn.tim34.weplay.GameRoomReviewsFragment;
+import ftn.tim34.weplay.fragments.GameRoomEventsFragment;
+import ftn.tim34.weplay.fragments.GameRoomFragment;
+import ftn.tim34.weplay.fragments.GameRoomReviewsFragment;
 import ftn.tim34.weplay.model.GameRoom;
 
 public class TabPagerAdapter extends FragmentStatePagerAdapter {

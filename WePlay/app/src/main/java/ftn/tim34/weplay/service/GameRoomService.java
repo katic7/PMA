@@ -3,8 +3,7 @@ package ftn.tim34.weplay.service;
 import java.util.List;
 
 import ftn.tim34.weplay.model.GameRoom;
-import ftn.tim34.weplay.model.GamingRoomMap;
-import okhttp3.ResponseBody;
+import ftn.tim34.weplay.dto.GamingRoomMap;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

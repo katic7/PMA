@@ -1,4 +1,4 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.google.android.material.tabs.TabLayout;
 
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.adapters.TabPagerAdapter;
 import ftn.tim34.weplay.model.GameRoom;
 

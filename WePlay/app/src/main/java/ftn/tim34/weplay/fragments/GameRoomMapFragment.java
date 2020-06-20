@@ -1,15 +1,17 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,20 +32,26 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.R;
+import ftn.tim34.weplay.activities.GameRoomActivity;
 import ftn.tim34.weplay.dialogs.LocationDialog;
-import ftn.tim34.weplay.model.GamingRoomMap;
+import ftn.tim34.weplay.dto.GamingRoomMap;
 import ftn.tim34.weplay.service.ServiceUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback, LocationListener {
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
+public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback, LocationListener {
+
     GoogleMap map;
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private LocationManager locationManager;
@@ -57,8 +65,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        View view = inflater.inflate(R.layout.fragment_game_room_map, container, false);
+        if (map == null) {
+            SupportMapFragment mapFrag = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.details_map);
+            mapFrag.getMapAsync(this);
+        }
+        return view;
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,7 +90,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
 
         //lepnjenje fragmenta na view group
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.map, supportMapFragment).commit();
+        transaction.replace(R.id.details_map, supportMapFragment).commit();
 
         supportMapFragment.getMapAsync(this);
     }
@@ -217,6 +231,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         map = googleMap;
         Location location = null;
 
+        try {
+            // Customise the styling of the base map using a JSON object defined
+            // in a raw resource file.
+            boolean success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            getContext(), R.raw.map_style));
+
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e(TAG, "Can't find style. Error: ", e);
+        }
+
         if (checkLocationPermission()) {
             if (ContextCompat.checkSelfPermission(getContext(),
                     Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -262,9 +290,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
     @Override
     public void onLocationChanged(Location location) {
         if(map != null){
+            clearMap();
+            grMap.clear();
+            grLocation.clear();
             addMarker(location);
-            grMap = new ArrayList<>();
-            grLocation = new ArrayList<>();
             reloadData(location);
         }
     }
@@ -351,5 +380,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
     private void openActivity(GamingRoomMap gr){
         Intent intent = new Intent(getContext(), GameRoomActivity.class);
         getContext().startActivity(intent);
+    }
+
+    void clearMap(){
+        for(Marker m : grLocation){
+            m.remove();
+        }
     }
 }

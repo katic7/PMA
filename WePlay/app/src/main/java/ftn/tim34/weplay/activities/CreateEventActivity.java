@@ -1,21 +1,21 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.util.Calendar;
+
+import ftn.tim34.weplay.R;
 
 public class CreateEventActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     Button button;

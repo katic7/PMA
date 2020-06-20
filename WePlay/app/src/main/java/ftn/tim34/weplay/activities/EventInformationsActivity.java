@@ -1,4 +1,4 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.adapters.EventNewsAdapter;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.EventInformation;

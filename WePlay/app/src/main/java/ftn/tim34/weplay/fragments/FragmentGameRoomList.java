@@ -1,15 +1,12 @@
-package ftn.tim34.weplay;
+package ftn.tim34.weplay.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,10 +14,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.service.ServiceUtils;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
