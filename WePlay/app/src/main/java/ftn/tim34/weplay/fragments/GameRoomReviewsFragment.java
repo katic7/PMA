@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ import ftn.tim34.weplay.adapters.CustomReviewList;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.dto.Review;
 import ftn.tim34.weplay.service.ServiceUtils;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,6 +40,11 @@ public class GameRoomReviewsFragment extends Fragment {
     private ListView listView;
     private List<String> arrayReviews = new ArrayList<String>();
     private ArrayAdapter arrayAdapter;
+    private AlertDialog dialog;
+    private CustomReviewList adapter;
+    private Review r;
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -86,10 +94,6 @@ public class GameRoomReviewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_game_room_reviews,container,false);
-        reviews = selected.getReviews();
-        for(Review e : reviews) {
-            arrayReviews.add(e.getComment() + "\tOcena:" + e.getStars());
-        }
         listView = view.findViewById(R.id.list_view_reviews);
 
 
@@ -101,15 +105,40 @@ public class GameRoomReviewsFragment extends Fragment {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
                 View mView = getLayoutInflater().inflate(R.layout.dialog_new_review, null);
                 Button btnAddReview = (Button) mView.findViewById(R.id.btnAddReview);
+                final EditText et_comment = mView.findViewById(R.id.et_review);
+                final RatingBar rb_rating = mView.findViewById(R.id.rb_rating);
                 btnAddReview.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View vi) {
-                        Toast.makeText(vi.getContext(), "Review Successfuly added!", Toast.LENGTH_SHORT).show();
+                        r = new Review();        //zakucano za sada
+                        r.setComment(et_comment.getText().toString());
+                        r.setStars(rb_rating.getRating());
+                        r.setUser_email("nemanjadimsic6@gmail.com");
+                        r.setUser("Nemanja Dimsic");
+                        Call<ResponseBody> call = ServiceUtils.reviewService.createReview(selected.getId(), r);
+                        call.enqueue(new Callback<ResponseBody>() {
+                            @Override
+                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                if(response.code() == 405){
+                                    Toast.makeText(getContext(), "Vеć ste ocenili ovu igraonicu.", Toast.LENGTH_SHORT).show();
+                                }else if(response.code() == 200){
+                                    Toast.makeText(getContext(), "Vaš komentar je uspešno zabeležen i objavljen.", Toast.LENGTH_SHORT).show();
+                                    reviews.add(r);
+                                    adapter.notifyDataSetChanged();
+                                }
+                                dialog.dismiss();
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                Toast.makeText(getContext(), "Greška na serveru, molimo Vas pokušajte ponovo.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                     }
                 });
                 mBuilder.setView(mView);
-                AlertDialog dialog = mBuilder.create();
+                dialog = mBuilder.create();
                 dialog.show();
             }
         });
@@ -120,13 +149,14 @@ public class GameRoomReviewsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        reviews = new ArrayList<Review>();
         final Call<List<Review>> call = ServiceUtils.reviewService.getAllReviews(selected.getId());
         call.enqueue(new Callback<List<Review>>() {
             @Override
             public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {
                 if(response.code() == 200){
-                    CustomReviewList adapter = new CustomReviewList(getContext(), response.body());
+                    reviews = response.body();
+                    adapter = new CustomReviewList(getContext(), reviews);
                     listView.setAdapter(adapter);
                 }
             }

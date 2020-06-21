@@ -20,7 +20,7 @@ public class EventDTO {
     private short numbOfPlayers;
     private short participants;
     private String description;
-    private Long creator_id;
+    private String creator_email;
     private String gameRoom;
     private double lat;
     private double lon;
@@ -32,7 +32,7 @@ public class EventDTO {
     	this.numbOfPlayers = e.getNumbOfPlayers();
     	this.participants = (short) e.getParticipants().size();
     	this.description = e.getDescription();
-    	this.creator_id = e.getCreator().getId();
+    	this.creator_email = e.getCreator().getEmail();
     	this.gameRoom = e.getGamingRoom().getName();
     	this.lat = e.getGamingRoom().getAddress().getLat();
     	this.lon = e.getGamingRoom().getAddress().getLon();

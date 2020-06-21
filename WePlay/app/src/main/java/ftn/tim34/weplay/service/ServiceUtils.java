@@ -18,6 +18,8 @@ public class ServiceUtils {
     public static final String GET_GAMING_ROOM_EVENTS = "event/getAll/";
     public static final String GET_GAMING_ROOM_MAP = "gamingroom/getAllForMap";
     public static final String GET_ALL_REVIEWS = "review/getAll/";
+    public static final String CREATE_REVIEW = "review/create/";
+    public static final String CREATE_EVENT = "event/create/";
 
     public static OkHttpClient test() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

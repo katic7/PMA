@@ -16,8 +16,8 @@ import java.util.List;
 @Setter
 public class Event {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

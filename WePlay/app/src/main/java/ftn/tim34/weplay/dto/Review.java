@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public class Review implements Serializable {
 
-    @SerializedName("user_id")
-    Long user_id;
+    @SerializedName("user_email")
+    String user_email;
 
     @SerializedName("user")
     String user;
@@ -18,12 +18,14 @@ public class Review implements Serializable {
     @SerializedName("rating")
     Float stars;
 
-    public Review(String user, String comment, Float stars, Long user_id) {
+    public Review(String user, String comment, Float stars, String user_email) {
         this.user = user;
         this.comment = comment;
         this.stars = stars;
-        this.user_id = user_id;
+        this.user_email = user_email;
     }
+
+    public Review(){};
 
     public String getUser() {
         return user;
@@ -49,11 +51,11 @@ public class Review implements Serializable {
         this.stars = stars;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public String getUser_email() {
+        return user_email;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 }

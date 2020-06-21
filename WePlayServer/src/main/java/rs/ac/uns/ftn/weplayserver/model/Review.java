@@ -13,17 +13,18 @@ import lombok.Setter;
 @Setter
 public class Review {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String comment;
 
     private float rating;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     protected User user;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name = "gamingRoom")
     protected GamingRoom gamingRoom;
 }

@@ -21,8 +21,11 @@ public class Event implements Serializable {
     @SerializedName("participants")
     int numberOfActivePlayers;
 
-
+    @SerializedName("min_skill_level")
     String minimumSkillLevel;
+
+    @SerializedName("creator_email")
+    String creator_email;
 
     @SerializedName("gameRoom")
     String gameRoom;
@@ -143,5 +146,13 @@ public class Event implements Serializable {
 
     public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public String getCreator_email() {
+        return creator_email;
+    }
+
+    public void setCreator_email(String creator_email) {
+        this.creator_email = creator_email;
     }
 }

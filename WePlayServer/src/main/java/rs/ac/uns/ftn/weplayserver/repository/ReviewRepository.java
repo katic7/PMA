@@ -11,6 +11,9 @@ import rs.ac.uns.ftn.weplayserver.model.Review;
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
-	@Query(value = "select * from review where gaming_room_id = ?1", nativeQuery = true)
+	@Query(value = "select * from review where gaming_room = ?1", nativeQuery = true)
 	List<Review> getAllReviews(Long id);
+	
+	@Query(value = "select * from review where gaming_room = ?1 and user_id = ?2", nativeQuery = true)
+	Review getUserReview(Long grId, Long userId);
 }

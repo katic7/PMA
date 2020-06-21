@@ -77,9 +77,9 @@ public class MyEventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        GameRoom selected = MainActivity.gameRooms.get(0); //temp mock podaci
+//        GameRoom selected = MainActivity.gameRooms.get(0); //temp mock podaci
         View view =inflater.inflate(R.layout.fragment_my_events,container,false);
-        events = selected.getEvents();
+  //      events = selected.getEvents();
 
         for(Event e : events) {
             arrayEventsName.add(e.getName());

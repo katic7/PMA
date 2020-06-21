@@ -13,8 +13,8 @@ import javax.persistence.*;
 @Setter
 public class Address {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String street;
