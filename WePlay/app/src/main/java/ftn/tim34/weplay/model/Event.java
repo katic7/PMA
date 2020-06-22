@@ -24,6 +24,10 @@ public class Event implements Serializable {
     @SerializedName("min_skill_level")
     String minimumSkillLevel;
 
+    @SerializedName("description")
+    private String description;
+
+
     @SerializedName("creator_email")
     String creator_email;
 
@@ -57,15 +61,15 @@ public class Event implements Serializable {
     }
 
 
-    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String minimumSkillLevel, String gameRoom, Date deadline, List<EventInformation> news) {
+    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String minimumSkillLevel, Date deadline, String creator_email, String description) {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
         this.numberOfActivePlayers = numberOfActivePlayers;
         this.minimumSkillLevel = minimumSkillLevel;
-        this.gameRoom = gameRoom;
         this.deadline = deadline;
-        this.news = news;
+        this.creator_email = creator_email;
+        this.description = description;
     }
 
     public List<EventInformation> getNews() {
@@ -154,5 +158,13 @@ public class Event implements Serializable {
 
     public void setCreator_email(String creator_email) {
         this.creator_email = creator_email;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

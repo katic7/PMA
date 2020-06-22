@@ -64,7 +64,9 @@
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5" />
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:id="@+id/rb_minSkillLevel"/>
 
         <TextView
             android:id="@+id/textView61112"
@@ -72,12 +74,27 @@
             android:layout_height="wrap_content"
             android:text="Deadline" />
 
-        <Button
-            android:id="@+id/buttonDate"
+        <RelativeLayout
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-            android:text="Choose date" />
+            >
+            <EditText
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/et_deadline"
+                android:inputType="date"
+                android:clickable="false"
+                />
+            <Button
+                android:id="@+id/buttonDate"
+                android:layout_width="150dp"
+                android:background="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Choose date" />
+    </RelativeLayout>
 
         <TextView
             android:id="@+id/textView3611112"
@@ -91,7 +108,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/createButton"
+            android:id="@+id/btn_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"

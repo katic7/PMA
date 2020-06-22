@@ -56,7 +56,8 @@ public class EventController {
 	public ResponseEntity<?> createEvent(@PathVariable Long id, @RequestBody EventDTO e){
 		GamingRoom gr = grRepo.getOne(id);
 		Event ev = new Event();
-		Game game = gameRepo.findByName(e.getName());
+		Game game = gameRepo.findByName(e.getGame());
+	
 		List<Notification> notif = new ArrayList<Notification>();
 		List<User> parti = new ArrayList<User>();
 		
