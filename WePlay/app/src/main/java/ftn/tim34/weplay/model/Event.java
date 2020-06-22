@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 public class Event implements Serializable {
@@ -35,7 +35,7 @@ public class Event implements Serializable {
     String gameRoom;
 
     @SerializedName("joinDeadline")
-    Date deadline;
+    String deadline;
 
     @SerializedName("lat")
     double lat;
@@ -50,7 +50,7 @@ public class Event implements Serializable {
 
     }
 
-    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String gameRoom, Date deadline, String minimumSkillLevel) {
+    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String gameRoom, String deadline, String minimumSkillLevel) {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
@@ -61,7 +61,7 @@ public class Event implements Serializable {
     }
 
 
-    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String minimumSkillLevel, Date deadline, String creator_email, String description) {
+    public Event(String name, String game, int numberOfPlayers, int numberOfActivePlayers, String minimumSkillLevel, String deadline, String creator_email, String description) {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
@@ -120,11 +120,11 @@ public class Event implements Serializable {
         this.gameRoom = gameRoom;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 

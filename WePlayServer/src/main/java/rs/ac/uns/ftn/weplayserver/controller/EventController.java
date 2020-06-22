@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.weplayserver.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +68,7 @@ public class EventController {
 		ev.setDescription(e.getDescription());
 		ev.setEventNotifications(notif);
 		ev.setGamingRoom(gr);
-		ev.setJoinDeadline(e.getJoinDeadline());
+		ev.setJoinDeadline(new Date());
 		ev.setNumbOfPlayers(e.getNumbOfPlayers());
 		ev.setName(e.getName());
 		ev.setParticipants(parti);

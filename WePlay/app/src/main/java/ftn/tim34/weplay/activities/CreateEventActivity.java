@@ -1,10 +1,13 @@
 package ftn.tim34.weplay.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,8 +20,10 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.Event;
@@ -86,22 +91,26 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
         });
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                Date date1;
+               /* Date date1;
+                String strDate = et_deadline.getText().toString().replaceAll("\\.","/");
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 try {
-                    date1=new SimpleDateFormat("dd.MM.yyyy").parse(et_deadline.getText().toString());
+                    date1 = formatter.parse(strDate);
                 } catch (ParseException e) {
                     e.printStackTrace();
                     date1 = new Date();
-                }
-                Event e = new Event(et_name.getText().toString(), et_game.getText().toString(),Integer.parseInt(et_numbOfPlayers.getText().toString()),0,"3",date1,"katicmilan7@gmail.com","Strava turnir - 20kRSD");
+                }*/
+                Event e = new Event(et_name.getText().toString(), et_game.getText().toString(),Integer.parseInt(et_numbOfPlayers.getText().toString()),0,"3",et_deadline.getText().toString(),"katicmilan7@gmail.com","Strava turnir - 20kRSD");
                 final Call<ResponseBody> call = ServiceUtils.eventService.createEvent(Long.parseLong("1"),e);
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if(response.code() == 200){
                             Toast.makeText(getApplicationContext(), "Uspešno kreiran event.",Toast.LENGTH_SHORT).show();
+                            finish();
                         }else{
                             Toast.makeText(getApplicationContext(), "Greška.",Toast.LENGTH_SHORT).show();
                         }

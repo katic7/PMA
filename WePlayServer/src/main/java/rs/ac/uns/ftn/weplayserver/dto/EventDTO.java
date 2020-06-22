@@ -16,7 +16,7 @@ public class EventDTO {
 
 	private String name;
 	private String game;
-    private Date joinDeadline;
+    private String joinDeadline;
     private short numbOfPlayers;
     private short participants;
     private String description;
@@ -28,7 +28,7 @@ public class EventDTO {
     public EventDTO(Event e) {
     	this.name = e.getName();
     	this.game = e.getGame().getName();
-    	this.joinDeadline = e.getJoinDeadline();
+    	this.joinDeadline = e.getJoinDeadline().toLocaleString();
     	this.numbOfPlayers = e.getNumbOfPlayers();
     	this.participants = (short) e.getParticipants().size();
     	this.description = e.getDescription();
