@@ -96,6 +96,7 @@ public class GameRoomEventsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CreateEventActivity.class);
+                intent.putExtra("roomId", selected.getId());
                 startActivity(intent);
             }
         });

@@ -19,9 +19,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/CreateEventActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/CreateEventActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomEventsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomEventsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/MyEventsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/MyEventsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/ServiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/ServiceUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/EventController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_-_Nougat_7.0" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_XL_API_27" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

@@ -17,4 +17,7 @@ public interface EventService {
 
     @POST(ServiceUtils.CREATE_EVENT + "{id}")
     Call<ResponseBody> createEvent(@Path("id") Long id, @Body Event ev);
+
+    @GET(ServiceUtils.GET_MY_EVENTS + "{email}")
+    Call<List<Event>> getMyEvents(@Path("email") String email);
 }

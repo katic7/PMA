@@ -77,4 +77,27 @@ public class EventController {
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping("getMyEvents/{email}")
+	public ResponseEntity<?> getMyEvents(@PathVariable String email) {
+		User u = userRepo.findByEmail(email);
+		
+		List<EventDTO> retVal = new ArrayList<EventDTO>();
+		List<Event> createdEvents = eventRepo.getCreatedEvents(u.getId());
+		List<Event> joinedEvents = u.getParticipantEvents();
+		List<Event> events = new ArrayList<Event>();
+		
+		if(createdEvents != null) {
+			events.addAll(createdEvents);
+		}
+		
+		if(joinedEvents != null) {
+			events.addAll(joinedEvents);
+		}
+		
+		for(Event e : events) {
+			retVal.add(new EventDTO(e));
+		}
+		return new ResponseEntity<List<EventDTO>>(retVal, HttpStatus.OK);
+	}
 }
