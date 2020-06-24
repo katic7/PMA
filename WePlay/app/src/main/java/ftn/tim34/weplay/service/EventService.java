@@ -23,4 +23,7 @@ public interface EventService {
 
     @POST(ServiceUtils.SUBSCRIBE_EVENT + "{id}" + "/" + "{user}")
     Call<ResponseBody> subscribeEvent(@Path("id") Long id, @Path("user") String user);
+
+    @GET(ServiceUtils.GET_MY_EVENTS + "{email}")
+    Call<List<Event>> getMyEvents(@Path("email") String email);
 }

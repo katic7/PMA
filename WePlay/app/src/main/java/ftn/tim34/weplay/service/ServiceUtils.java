@@ -22,6 +22,7 @@ public class ServiceUtils {
     public static final String GET_ALL_REVIEWS = "review/getAll/";
     public static final String CREATE_REVIEW = "review/create/";
     public static final String CREATE_EVENT = "event/create/";
+    public static final String GET_MY_EVENTS = "event/getMyEvents/";
 
     public static OkHttpClient test() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

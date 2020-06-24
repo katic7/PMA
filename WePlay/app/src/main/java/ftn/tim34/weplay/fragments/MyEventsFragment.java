@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ import ftn.tim34.weplay.activities.MainActivity;
 import ftn.tim34.weplay.adapters.CustomEventList;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
+import ftn.tim34.weplay.service.ServiceUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -30,8 +35,7 @@ import ftn.tim34.weplay.model.GameRoom;
  */
 public class MyEventsFragment extends Fragment {
     private ListView listView;
-    private List<Event> events;
-    private List<String> arrayEventsName = new ArrayList<String>();
+    private List<Event> events = new ArrayList<Event>();
     private ArrayAdapter arrayAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,11 +85,8 @@ public class MyEventsFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_my_events,container,false);
   //      events = selected.getEvents();
 
-        for(Event e : events) {
-            arrayEventsName.add(e.getName());
-        }
         listView = view.findViewById(R.id.list_view_my_events);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Event selected = new Event();
@@ -99,12 +100,40 @@ public class MyEventsFragment extends Fragment {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
-        });
+        });*/
         /*arrayAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1,
                 arrayEventsName);*/
-        CustomEventList adapter = new CustomEventList(getContext(), events);
-        listView.setAdapter(adapter);
+
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Call<List<Event>> call = ServiceUtils.eventService.getMyEvents("katicmilan7@gmail.com");
+        call.enqueue(new Callback<List<Event>>() {
+            @Override
+            public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
+                if(response.code() == 200){
+                    if(response.body().size() == 0){
+                        Toast.makeText(getContext(), "You don't have any events.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        events.clear();
+                        events = response.body();
+                        CustomEventList adapter = new CustomEventList(getContext(),events);
+                        listView.setAdapter(adapter);
+                    }
+                }else{
+                    Toast.makeText(getContext(), "Greška.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Event>> call, Throwable t) {
+
+            }
+        });
     }
 }

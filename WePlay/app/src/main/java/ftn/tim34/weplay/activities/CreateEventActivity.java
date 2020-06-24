@@ -44,11 +44,16 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
     private RatingBar rb_minSkillLevel;
     private EditText et_deadline;
 
+    private Long roomId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Bundle extras = getIntent().getExtras();
+
+        roomId = extras.getLong("roomId");
 
         btnCreate = findViewById(R.id.btn_create);
         et_name = findViewById(R.id.eName);
@@ -118,7 +123,7 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(), "Greška.",Toast.LENGTH_SHORT).show();
                     }
                 });
             }

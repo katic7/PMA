@@ -27,7 +27,10 @@ insert into user (id, email, enabled, first_name, gaming_skill, last_name, last_
 insert into game (id, name, type) values (1, "Counter Strike", "Pucacina");
 
 --events
-insert into event (id, date_time, description, join_deadline, name, numb_of_players, creator_id, game_id, gaming_room_id) values (1, "2020-06-24 12:12:12", "Amaterski turnir - nagrada 10.000RSD","2020-06-24 20:00:00", "CS GO Turnir", 15, 1, 1, 1);
-
+insert into event (id, date_time, description, join_deadline, name, numb_of_players, creator_id, game_id, gaming_room_id) values (1, "2020-06-25 12:12:12", "Amaterski turnir - nagrada 10.000RSD","2020-06-25 20:00:00", "CS GO Turnir", 15, 1, 1, 1);
+insert into event (id, date_time, description, join_deadline, name, numb_of_players, creator_id, game_id, gaming_room_id) values (2, "2020-07-20 12:12:12", "Sjajan turnir","2020-07-20 20:00:00", "Counter Stirke turnir", 15, 2, 1, 1);
 --reviews
 insert into review (id, comment, rating, gaming_room, user_id) values (1, "Solidna igraonica, mana je sto ima puno klinaca", 4.0, 1, 1);
+
+--participants
+insert into participant_events (user_id, event_id) values (1,2);
