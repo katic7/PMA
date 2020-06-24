@@ -3,4 +3,6 @@
     <color name="colorPrimary">#4A6572</color>
     <color name="colorPrimaryDark">#344955</color>
     <color name="colorAccent">#F9AA33</color>
+    <color name="aprrovedButton">#01F858</color>
+    <color name="rejectedButton">#4A6572</color>
 </resources>

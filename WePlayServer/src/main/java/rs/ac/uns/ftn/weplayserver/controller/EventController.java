@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.uns.ftn.weplayserver.dto.EventDTO;
+import rs.ac.uns.ftn.weplayserver.dto.StringDTO;
 import rs.ac.uns.ftn.weplayserver.model.Event;
 import rs.ac.uns.ftn.weplayserver.model.Game;
 import rs.ac.uns.ftn.weplayserver.model.GamingRoom;
@@ -76,5 +77,43 @@ public class EventController {
 		eventRepo.save(ev);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@PostMapping("join/{id}/{user}")
+	public ResponseEntity<?> joinEvent(@PathVariable Long id, @PathVariable String user) throws Exception{
+
+		Event event2join = eventRepo.getOne(id);
+		User user2join = userRepo.findByEmail(user);
+		if(event2join.getParticipants().size() == event2join.getNumbOfPlayers()) {
+			return new ResponseEntity<StringDTO>(new StringDTO("Max players reached.", 400), HttpStatus.OK);
+		}
+		if(event2join.getJoinDeadline().before(new Date())) {
+			return new ResponseEntity<StringDTO>(new StringDTO("Deadline date expired.",400), HttpStatus.OK);
+		}
+		if(!user2join.getParticipantEvents().contains(event2join)) {
+			user2join.getParticipantEvents().add(event2join);
+			userRepo.save(user2join);
+			return new ResponseEntity<StringDTO>(new StringDTO("Join Success", 200), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<StringDTO>(new StringDTO("Already Joined", 200), HttpStatus.OK);
+		}
+		
+	}
+	
+	@PostMapping("subscribe/{id}/{user}")
+	public ResponseEntity<?> subscribe2Event(@PathVariable Long id, @PathVariable String user) {
+
+		Event event2join = eventRepo.getOne(id);
+		User user2join = userRepo.findByEmail(user);
+		if(!user2join.getSubscriberEvents().contains(event2join)) {
+			user2join.getSubscriberEvents().add(event2join);
+			userRepo.save(user2join);
+			return new ResponseEntity<StringDTO>(new StringDTO("Subscription Success", 200), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<StringDTO>(new StringDTO("Already Subscribed", 200), HttpStatus.OK);
+		}
+		
+		
+		
 	}
 }

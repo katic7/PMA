@@ -18,10 +18,21 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_15_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_15_0_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/CreateEventActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/CreateEventActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/EventDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/EventDetailsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/RegistrationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/RegistrationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomEventsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomEventsFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/ServiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/ServiceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/dto/EventDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/dto/EventDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +40,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_-_Nougat_7.0" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_XL_API_24" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -58,8 +69,8 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_XL_API_27" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-06-10T08:52:59Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_XL_API_24" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-06-23T11:07:08.890Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -270,5 +281,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="response.errorBody.string()" language="JAVA" />
+        <watch expression="response.errorBody.string()" language="JAVA" />
+        <watch expression="response.body()" language="JAVA" />
+        <watch expression="response.body().string()" language="JAVA" />
+        <watch expression="obj.getString(&quot;message&quot;)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

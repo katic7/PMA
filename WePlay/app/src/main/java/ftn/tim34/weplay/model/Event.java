@@ -9,6 +9,9 @@ import java.util.List;
 
 public class Event implements Serializable {
 
+    @SerializedName("id")
+    Long id;
+
     @SerializedName("name")
     String name;
 
@@ -18,8 +21,8 @@ public class Event implements Serializable {
     @SerializedName("numbOfPlayers")
     int numberOfPlayers;
 
-    @SerializedName("participants")
-    int numberOfActivePlayers;
+  //  @SerializedName("participants")
+  //  int numberOfActivePlayers;
 
     @SerializedName("min_skill_level")
     String minimumSkillLevel;
@@ -43,6 +46,11 @@ public class Event implements Serializable {
     @SerializedName("lon")
     double lon;
 
+    @SerializedName("participants")
+    private List<User> participants = new ArrayList<>();
+
+    @SerializedName("subscribers")
+    private List<User> subscribers = new ArrayList<>();
 
     List<EventInformation> news = new ArrayList<>();
 
@@ -54,7 +62,7 @@ public class Event implements Serializable {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
-        this.numberOfActivePlayers = numberOfActivePlayers;
+        //this.numberOfActivePlayers = numberOfActivePlayers;
         this.gameRoom = gameRoom;
         this.deadline = deadline;
         this.minimumSkillLevel = minimumSkillLevel;
@@ -65,11 +73,19 @@ public class Event implements Serializable {
         this.name = name;
         this.game = game;
         this.numberOfPlayers = numberOfPlayers;
-        this.numberOfActivePlayers = numberOfActivePlayers;
+        //this.numberOfActivePlayers = numberOfActivePlayers;
         this.minimumSkillLevel = minimumSkillLevel;
         this.deadline = deadline;
         this.creator_email = creator_email;
         this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<EventInformation> getNews() {
@@ -103,7 +119,7 @@ public class Event implements Serializable {
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
     }
-
+/*
     public int getNumberOfActivePlayers() {
         return numberOfActivePlayers;
     }
@@ -111,6 +127,7 @@ public class Event implements Serializable {
     public void setNumberOfActivePlayers(int numberOfActivePlayers) {
         this.numberOfActivePlayers = numberOfActivePlayers;
     }
+ */
 
     public String getGameRoom() {
         return gameRoom;
@@ -166,5 +183,21 @@ public class Event implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<User> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<User> participants) {
+        this.participants = participants;
+    }
+
+    public List<User> getSubscribers() {
+        return subscribers;
+    }
+
+    public void setSubscribers(List<User> subscribers) {
+        this.subscribers = subscribers;
     }
 }

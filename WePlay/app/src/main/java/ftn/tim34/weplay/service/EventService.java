@@ -17,4 +17,10 @@ public interface EventService {
 
     @POST(ServiceUtils.CREATE_EVENT + "{id}")
     Call<ResponseBody> createEvent(@Path("id") Long id, @Body Event ev);
+
+    @POST(ServiceUtils.JOIN_EVENT + "{id}" + "/" + "{user}")
+    Call<ResponseBody> joinEvent(@Path("id") Long id, @Path("user") String user);
+
+    @POST(ServiceUtils.SUBSCRIBE_EVENT + "{id}" + "/" + "{user}")
+    Call<ResponseBody> subscribeEvent(@Path("id") Long id, @Path("user") String user);
 }

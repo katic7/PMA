@@ -16,6 +16,8 @@ public class ServiceUtils {
     public static final String LOGIN = "auth/login";
     public static final String GET_ALL_GAMING_ROOMS = "gamingroom/getAll";
     public static final String GET_GAMING_ROOM_EVENTS = "event/getAll/";
+    public static final String JOIN_EVENT = "event/join/";
+    public static final String SUBSCRIBE_EVENT = "event/subscribe/";
     public static final String GET_GAMING_ROOM_MAP = "gamingroom/getAllForMap";
     public static final String GET_ALL_REVIEWS = "review/getAll/";
     public static final String CREATE_REVIEW = "review/create/";

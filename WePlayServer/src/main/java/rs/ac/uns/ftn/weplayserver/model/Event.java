@@ -38,6 +38,9 @@ public class Event {
 
     @ManyToMany(mappedBy = "participantEvents")
     private List<User> participants = new ArrayList<>();
+    
+    @ManyToMany(mappedBy = "subscriberEvents")
+    private List<User> subscribers = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
     protected GamingRoom gamingRoom;

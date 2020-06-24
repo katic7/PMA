@@ -42,7 +42,7 @@ public class RegistrationActivity extends Activity {
         if (name.trim().isEmpty() || surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Morate popuniti sva polja!", Toast.LENGTH_SHORT).show();
         } else {
-            User user = new User("Petar", "Petrovic", "petar.petrovic@gmail.com", "123", 5);
+            User user = new User("Petar", "Petrovic", email, password, 5);
 
             Call<ResponseBody> call = ServiceUtils.userService.register(user);
             call.enqueue(new Callback<ResponseBody>() {
