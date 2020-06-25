@@ -17,7 +17,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@xml/network_security_config">
-        <activity android:name=".activities.EventInformationsActivity"></activity>
+        <activity android:name=".activities.EventInformationsActivity">
+            <intent-filter>
+                <action android:name="NOTIFICATION_INFO">
+
+                </action>
+                <category android:name="android.intent.category.DEFAULT">
+
+                </category>
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.CreateEventActivity" />
         <activity android:name=".activities.EventDetailsActivity" />
 

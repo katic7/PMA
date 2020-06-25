@@ -1,10 +1,7 @@
 package rs.ac.uns.ftn.weplayserver.dto;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +17,8 @@ public class EventDTO {
 	private String game;
     private String joinDeadline;
     private short numbOfPlayers;
-    private List<User> participants;
-    private List<User> subscribers;
+    private List<UserDTO> participants = new ArrayList<>();
+    private List<UserDTO> subscribers = new ArrayList<>();
     private String description;
     private String creator_email;
     private String gameRoom;
@@ -34,8 +31,13 @@ public class EventDTO {
     	this.game = e.getGame().getName();
     	this.joinDeadline = e.getJoinDeadline().toLocaleString();
     	this.numbOfPlayers = e.getNumbOfPlayers();
-    	this.participants = e.getParticipants();
-    	this.subscribers = e.getSubscribers();
+    	for(User u : e.getParticipants()) {
+    		participants.add(new UserDTO(u));
+    	}
+    	for(User u : e.getSubscribers()) {
+    		subscribers.add(new UserDTO(u));
+    	}
+    	
     	this.description = e.getDescription();
     	this.creator_email = e.getCreator().getEmail();
     	this.gameRoom = e.getGamingRoom().getName();

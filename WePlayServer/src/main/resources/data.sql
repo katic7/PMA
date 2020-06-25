@@ -19,8 +19,8 @@ insert into address (id, city, country, postal_code, street, gaming_room_id, lat
 insert into address (id, city, country, postal_code, street, gaming_room_id, lat, lon) values (9,"Novi Sad","Srbija", "21000", "Stevana Musica 11", 9, 45.25005,19.8519);
 
 --users
-insert into user (id, email, enabled, first_name, gaming_skill, last_name, last_password_reset_date, password) values (1, "katicmilan7@gmail.com",1, "Milan", 5, "Katic", "2020-01-20","123321");
-insert into user (id, email, enabled, first_name, gaming_skill, last_name, last_password_reset_date, password) values (2, "nemanjadimsic6@gmail.com",1, "Nemanja", 3, "Dimsic", "2020-01-20","123321");
+insert into user (id, email, enabled, first_name, gaming_skill, fcmid, last_name, last_password_reset_date, password) values (1, "katicmilan7@gmail.com",1, "Milan", 5, "id1", "Katic", "2020-01-20","123321");
+insert into user (id, email, enabled, first_name, gaming_skill, fcmid, last_name, last_password_reset_date, password) values (2, "nemanjadimsic6@gmail.com",1, "Nemanja", 3, "eYfUAfJT_KY:APA91bE5CpvJ8nF6WdBsNFpmL7DAHEBIqB4av8sh2yFAPJUVnnbDETO_MUCP6wLikk0gVDT7GpP1oSl0wE5abndnvSisGm9PifZiBDX_qmdLsWVFcVrGSffUz3vxJ56NFLuR6FoNuqd5", "Dimsic", "2020-01-20","123321");
 
 
 --games

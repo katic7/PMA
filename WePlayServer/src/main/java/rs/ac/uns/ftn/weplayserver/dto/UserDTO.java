@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import rs.ac.uns.ftn.weplayserver.model.User;
 
 @Getter
 @Setter
@@ -19,5 +20,14 @@ public class UserDTO {
     private String token;
     private int expiresIn;
     private float gamingSkill;
+    
+    public UserDTO(User user) {
+    	this.id = user.getId();
+    	this.password = user.getPassword();
+    	this.firstName = user.getFirstName();
+    	this.lastName = user.getLastName();
+    	this.email = user.getEmail();
+    	this.gamingSkill = user.getGamingSkill();
+    }
 
 }

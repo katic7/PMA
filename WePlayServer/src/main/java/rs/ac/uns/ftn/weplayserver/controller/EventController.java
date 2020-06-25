@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ac.uns.ftn.weplayserver.dto.EventDTO;
+import rs.ac.uns.ftn.weplayserver.dto.StringDTO;
 import rs.ac.uns.ftn.weplayserver.model.Event;
 import rs.ac.uns.ftn.weplayserver.model.Game;
 import rs.ac.uns.ftn.weplayserver.model.GamingRoom;
@@ -66,7 +67,7 @@ public class EventController {
 		
 		ev.setCreator(u);
 		ev.setDescription(e.getDescription());
-		ev.setEventNotifications(notif);
+		//ev.setEventNotifications(notif);
 		ev.setGamingRoom(gr);
 		ev.setJoinDeadline(new Date());
 		ev.setNumbOfPlayers(e.getNumbOfPlayers());

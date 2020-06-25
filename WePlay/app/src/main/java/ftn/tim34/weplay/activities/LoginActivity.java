@@ -11,6 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.User;
 import ftn.tim34.weplay.service.ServiceUtils;
@@ -21,12 +28,12 @@ import retrofit2.Response;
 
 public class LoginActivity extends Activity {
     private SharedPreferences sharedPreferences;
+    String fcmid = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         sharedPreferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
     }
 
@@ -36,15 +43,22 @@ public class LoginActivity extends Activity {
         EditText tf_password = findViewById(R.id.tfPasswordLog);
         String password = tf_password.getText().toString();
 
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                             fcmid = task.getResult().getToken();
+            }
+        });
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
 
-        Call<ResponseBody> call = ServiceUtils.userService.login(user);
+        Call<ResponseBody> call = ServiceUtils.userService.login(user,fcmid);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Log.d("resp code", String.valueOf(response.code()));
+
                 if (response.code() == 200) {
                     Log.d("login", response.toString());
                     final SharedPreferences.Editor editor = sharedPreferences.edit();

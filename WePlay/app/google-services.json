@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "317591729851",
+    "firebase_url": "https://weplay-abcce.firebaseio.com",
+    "project_id": "weplay-abcce",
+    "storage_bucket": "weplay-abcce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317591729851:android:d1837c182855d7257c1b9e",
+        "android_client_info": {
+          "package_name": "ftn.tim34.weplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317591729851-l66e7ocvbmue9k8i1jahef9l5ek73cv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUDEzQy_sWfQDMw_CRC8WHozFCm1UEedo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317591729851-l66e7ocvbmue9k8i1jahef9l5ek73cv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

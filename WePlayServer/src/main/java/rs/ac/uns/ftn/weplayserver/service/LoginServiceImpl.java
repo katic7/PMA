@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import rs.ac.uns.ftn.weplayserver.dto.UserDTO;
 import rs.ac.uns.ftn.weplayserver.model.Authority;
@@ -20,10 +18,7 @@ import rs.ac.uns.ftn.weplayserver.security.TokenUtils;
 import rs.ac.uns.ftn.weplayserver.security.auth.JwtAuthenticationRequest;
 import rs.ac.uns.ftn.weplayserver.utils.ObjectMapperUtils;
 
-import javax.persistence.RollbackException;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +42,6 @@ public class LoginServiceImpl implements  LoginService{
 
     Logger logger = LoggerFactory.getLogger(LoginServiceImpl.class);
 
-
     @Override
     public User checkCredentials(JwtAuthenticationRequest request) {
         User user=userRepository.findByEmail(request.getUsername());
@@ -59,9 +53,7 @@ public class LoginServiceImpl implements  LoginService{
         return null;
     }
 
-
-
-    public UserDTO register(UserDTO userDTO) {
+    public UserDTO register(UserDTO userDTO, String fcmid) {
         User user = new User();
 
         if(userRepository.findByEmail(userDTO.getEmail()) != null){
@@ -71,6 +63,7 @@ public class LoginServiceImpl implements  LoginService{
 
         user.setLastName(userDTO.getLastName());
         user.setEnabled(true);
+        user.setFcmid(fcmid);
         user.setFirstName(userDTO.getFirstName());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         user.setEmail(userDTO.getEmail());
@@ -87,8 +80,10 @@ public class LoginServiceImpl implements  LoginService{
     }
 
     @Override
-    public UserDTO login(JwtAuthenticationRequest request) {
+    public UserDTO login(JwtAuthenticationRequest request, String fcmid) {
         User user=userRepository.findByEmail(request.getUsername());
+        user.setFcmid(fcmid);
+        userRepository.save(user);
         if(user!=null){
             if(passwordEncoder.matches(request.getPassword(),user.getPassword())){
                 String jwt = tokenUtils.generateToken(request.getUsername());
@@ -97,6 +92,7 @@ public class LoginServiceImpl implements  LoginService{
                 userDTO.setExpiresIn(expiresIn);
                 userDTO.setToken(jwt);
                 // Vrati user-a sa tokenom kao odgovor na uspesnu autentifikaciju
+                
                 return userDTO;
             }
         }

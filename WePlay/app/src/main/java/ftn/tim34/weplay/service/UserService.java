@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface UserService {
 
@@ -14,13 +15,13 @@ public interface UserService {
             "User-Agent: Mobile-Android",
             "Content-Type:application/json"
     })
-    @POST(ServiceUtils.CREATE_USER)
-    Call<ResponseBody> register(@Body User u);
+    @POST(ServiceUtils.CREATE_USER + "/" + "{fcmid}")
+    Call<ResponseBody> register(@Body User u, @Path("fcmid") String fcmid);
 
     @Headers({
             "User-Agent: Mobile-Android",
             "Content-Type:application/json"
     })
-    @POST(ServiceUtils.LOGIN)
-    Call<ResponseBody> login(@Body User u);
+    @POST(ServiceUtils.LOGIN + "/" + "{fcmid}")
+    Call<ResponseBody> login(@Body User u, @Path("fcmid") String fcmid);
 }

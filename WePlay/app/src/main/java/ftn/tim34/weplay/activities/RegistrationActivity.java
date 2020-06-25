@@ -9,6 +9,13 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.User;
 import ftn.tim34.weplay.service.ServiceUtils;
@@ -19,6 +26,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 public class RegistrationActivity extends Activity {
+
+    String fcmid = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +47,20 @@ public class RegistrationActivity extends Activity {
         String password = tf_password.getText().toString();
         RatingBar ratingBar = findViewById(R.id.ratingBar2);
         Float rating = ratingBar.getRating();
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        fcmid = task.getResult().getToken();
+                    }
+                });
 
         if (name.trim().isEmpty() || surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Morate popuniti sva polja!", Toast.LENGTH_SHORT).show();
         } else {
             User user = new User("Petar", "Petrovic", email, password, 5);
 
-            Call<ResponseBody> call = ServiceUtils.userService.register(user);
+            Call<ResponseBody> call = ServiceUtils.userService.register(user, fcmid);
             call.enqueue(new Callback<ResponseBody>() {
 
                 @Override

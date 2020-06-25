@@ -75,6 +75,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/gamingroom/**").permitAll()
                 .antMatchers("/event/**").permitAll()
                 .antMatchers("/review/**").permitAll()
+                .antMatchers("/notification/**").permitAll()
+
                 // svaki zahtev mora biti autorizovan
                 .anyRequest().authenticated().and()
                 // presretni svaki zahtev filterom
