@@ -12,67 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8513970a-b01f-4337-a7c1-463804faa39f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_maps_15_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_maps_15_0_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_wdullaer_materialdatetimepicker_2_3_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/CreateEventActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/CreateEventActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/EventDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/EventDetailsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/GameRoomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/activities/GameRoomActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/CustomEventList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/CustomEventList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/CustomGameRoomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/CustomGameRoomList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/HomeTabPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/HomeTabPagerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/TabPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/adapters/TabPagerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/dto/GamingRoomMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/dto/GamingRoomMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/FavoritesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/FavoritesFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/FragmentGameRoomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/FragmentGameRoomList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomEventsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomEventsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomMapFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomMapFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomReviewsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/GameRoomReviewsFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/MyEventsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/MyEventsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/fragments/SettingsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/model/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/model/GameRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/GameRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/GameRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/ServiceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ftn/tim34/weplay/service/ServiceUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game_room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game_room.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game_room_events.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game_room_events.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game_room_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_game_room_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_events.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_events.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/nav_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_event_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_event_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_rating_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_rating_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/map_style.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/raw/map_style.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_game_room_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_game_room_list.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/GameRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/controller/GameRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/dto/EventDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/dto/EventDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/dto/GamingRoomDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/dto/GamingRoomDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/GamingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/GamingRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/repository/GamingRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/java/rs/ac/uns/ftn/weplayserver/repository/GamingRoomRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WePlayServer/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../WePlayServer/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +24,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_-_Nougat_7.0" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="9889db324a514a5244" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

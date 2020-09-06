@@ -20,6 +20,8 @@
         android:layout_columnWeight="1"
         android:layout_marginLeft="10dp"
         android:textSize="30dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textColor="@color/mdtp_light_gray"
         android:id="@+id/gameRoomName"
         android:layout_row="0"

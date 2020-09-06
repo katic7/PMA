@@ -4,7 +4,7 @@ insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, wo
 insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (4, 60, 1599328800000, "Kum",65,"08:00-20:00","021300350", 4.5);
 insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (5, 25, 1599328800000, "WePlay",65,"08:00-20:00","021300350", 4.5);
 insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (6, 65, 1599328800000, "Cosmoplay",65,"08:00-20:00","021300350", 4.5);
-insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (7, 14, 1599328800000, "After party gaming room",65,"08:00-20:00","021300350", 4.5);
+insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (7, 14, 1599328800000, "Cosmoland",65,"08:00-20:00","021300350", 4.5);
 insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (8, 30, 1599328800000, "Forum MZ",65,"08:00-20:00","021300350", 4.5);
 insert into gaming_room (id, capacity, last_update_date, name,price_per_hour, working_hours, phone_number, rating) values (9, 35, 1599328800000, "Playground PS4",65,"08:00-20:00","021300350", 4.5);
 

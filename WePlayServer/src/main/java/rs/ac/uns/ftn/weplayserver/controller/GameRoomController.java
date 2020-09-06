@@ -64,7 +64,7 @@ public class GameRoomController {
 	
 	@GetMapping("getAll/{date}")
 	public List<GamingRoomSync> getAll(@PathVariable long date){
-		System.out.println("USAO");
+		System.out.println("USAO " + date);
 		List<GamingRoomSync> retVal = new ArrayList<GamingRoomSync>();
 		List<GamingRoom> grooms = grRepo.getAllForSync(date);
 		for(GamingRoom gr : grooms) {

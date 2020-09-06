@@ -56,9 +56,9 @@ public class HomeFragment extends Fragment {
         super.onResume();
         Date d = new Date();
         long date = sharedPreferences.getLong("last_sync",0);
-        if(date == 0){
+        /*if(date == 0){
             date = d.getTime();
-        }
+        }*/
         editor.putLong("last_sync", d.getTime());
         editor.apply();
         Call<List<GamingRoom>> call = ServiceUtils.gameRoomService.getAllSync(date);
