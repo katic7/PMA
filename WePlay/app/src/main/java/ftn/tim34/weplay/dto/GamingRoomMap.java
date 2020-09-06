@@ -1,5 +1,7 @@
 package ftn.tim34.weplay.dto;
 
+import ftn.tim34.weplay.model.GamingRoom;
+
 public class GamingRoomMap {
 
     private Long id;
@@ -9,6 +11,13 @@ public class GamingRoomMap {
     private String markerId;
 
     public GamingRoomMap(){}
+
+    public GamingRoomMap(GamingRoom gr){
+        this.id = gr.getId();
+        this.lat = gr.getLat();
+        this.lon = gr.getLon();
+        this.name = gr.getName();
+    }
 
     public Long getId() {
         return id;

@@ -18,6 +18,7 @@ import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.service.ServiceUtils;
+import ftn.tim34.weplay.sync.GamingRoomSqlSync;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -86,25 +87,10 @@ public class FragmentGameRoomList extends Fragment {
 
     @Override
     public void onResume() {
-        final Call<List<GameRoom>> call = ServiceUtils.gameRoomService.getAll();
-        call.enqueue(new Callback<List<GameRoom>>() {
-            @Override
-            public void onResponse(Call<List<GameRoom>> call, Response<List<GameRoom>> response) {
-                if(response.code() == 200){
-                    CustomGameRoomList adapter = new CustomGameRoomList(getContext(),response.body());
-                    gameList.setAdapter(adapter);
-                }else{
-                    Toast.makeText(getContext(), "Došlo je do greške.", Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<GameRoom>> call, Throwable t) {
-
-            }
-        });
-
         super.onResume();
+
+        CustomGameRoomList adapter = new CustomGameRoomList(getContext(), GamingRoomSqlSync.getData(getActivity()));
+        gameList.setAdapter(adapter);
     }
 
 }

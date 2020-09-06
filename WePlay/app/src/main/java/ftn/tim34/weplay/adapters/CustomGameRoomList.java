@@ -17,13 +17,14 @@ import java.util.List;
 import ftn.tim34.weplay.activities.GameRoomActivity;
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.model.GameRoom;
+import ftn.tim34.weplay.model.GamingRoom;
 
 public class CustomGameRoomList extends BaseAdapter {
 
-    private List<GameRoom> gameRooms = new ArrayList<>();
+    private List<GamingRoom> gameRooms = new ArrayList<>();
     private Context context;
 
-    public CustomGameRoomList(Context context, List<GameRoom> list) {
+    public CustomGameRoomList(Context context, List<GamingRoom> list) {
         this.context = context;
         this.gameRooms = list;
     }
@@ -59,14 +60,7 @@ public class CustomGameRoomList extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, GameRoomActivity.class);
-                /*intent.putExtra("name", gameRooms.get(position).getName());
-                intent.putExtra("id", gameRooms.get(position).getId());
-                intent.putExtra("capacity", gameRooms.get(position).getCapacity());
-                intent.putExtra("price_per_hour", gameRooms.get(position).getPrice_per_hour());
-                intent.putExtra("working_hours", gameRooms.get(position).getWorking_hours());
-                intent.putExtra("phoneNumber", gameRooms.get(position).getPhoneNumber());
-                intent.putExtra("rating", gameRooms.get(position).getRating());*/
-                intent.putExtra("gameRoom",gameRooms.get(position));
+                intent.putExtra("gameRoomId",gameRooms.get(position).getId());
                 context.startActivity(intent);
             }
         });

@@ -23,9 +23,9 @@ public class Game {
 
     private String type;
 
-    @ManyToMany(mappedBy = "favouriteGames")
+    /*@ManyToMany(mappedBy = "favouriteGames")
     private List<User> users = new ArrayList<>();
-
+*/
     @ManyToMany(mappedBy = "gamesInGamingRoom")
     private List<GamingRoom> gamingRoomsWithThisGame = new ArrayList<>();
 }

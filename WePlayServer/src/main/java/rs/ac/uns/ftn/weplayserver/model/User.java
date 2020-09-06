@@ -44,14 +44,21 @@ public class User implements UserDetails {
 
     private Boolean enabled;
 
-
     @ManyToMany
+    @JsonIgnore
+    @JoinTable(
+            name = "user_gameRooms",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "gameRoom_id"))
+    private List<GamingRoom> favouriteGameRooms = new ArrayList<>();
+
+    /*@ManyToMany
     @JsonIgnore
     @JoinTable(
             name = "user_games",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "game_id"))
-    private List<Game> favouriteGames = new ArrayList<>();
+    private List<Game> favouriteGames = new ArrayList<>();	*/	//mislim da ova veza treba da se brise
 
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications = new ArrayList<>();

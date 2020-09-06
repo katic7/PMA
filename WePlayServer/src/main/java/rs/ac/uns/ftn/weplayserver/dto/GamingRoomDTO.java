@@ -17,6 +17,7 @@ public class GamingRoomDTO {
     private String working_hours;
     private String phoneNumber;
     private float rating;
+    private boolean favourite;
 	private AddressDTO address;
 	
 	public GamingRoomDTO(GamingRoom gr) {

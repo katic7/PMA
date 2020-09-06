@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceUtils {
 
-
-    public static final String SERVICE_API_PATH = "http://10.0.2.2:8090/";
+//10.0.2.2
+    public static final String SERVICE_API_PATH = "http://192.168.0.22:8090/";
     public static final String CREATE_USER = "auth/register";
     public static final String LOGIN = "auth/login";
     public static final String GET_ALL_GAMING_ROOMS = "gamingroom/getAll";
@@ -23,6 +23,13 @@ public class ServiceUtils {
     public static final String CREATE_REVIEW = "review/create/";
     public static final String CREATE_EVENT = "event/create/";
     public static final String GET_MY_EVENTS = "event/getMyEvents/";
+    public static final String GET_ALL_GR_SYNC = "gamingroom/getAll/";
+    public static final String GET_GR_BY_ID = "gamingroom/";
+    public static final String CHANGE_FAVOURITE = "gamingroom/changeFavourite/";
+    public static final String GET_FAVOURITE = "gamingroom/favourites/";
+    public static final String MY_EVENTS_CREATED = "event/created/";
+    public static final String MY_EVENTS_JOINED = "event/joined/";
+    public static final String MY_EVENTS_SUBSCRIBEDED = "event/subscribed/";
 
     public static OkHttpClient test() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,8 @@ import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.activities.EventInformationsActivity;
 import ftn.tim34.weplay.activities.MainActivity;
 import ftn.tim34.weplay.adapters.CustomEventList;
+import ftn.tim34.weplay.adapters.HomeTabPagerAdapter;
+import ftn.tim34.weplay.adapters.MyEventsTabPagerAdapter;
 import ftn.tim34.weplay.model.Event;
 import ftn.tim34.weplay.model.GameRoom;
 import ftn.tim34.weplay.service.ServiceUtils;
@@ -80,60 +85,15 @@ public class MyEventsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        GameRoom selected = MainActivity.gameRooms.get(0); //temp mock podaci
-        View view =inflater.inflate(R.layout.fragment_my_events,container,false);
-  //      events = selected.getEvents();
-
-        listView = view.findViewById(R.id.list_view_my_events);
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Event selected = new Event();
-                for(Event g : events) {
-                    if(g.getName().equals(arrayEventsName.get(position))) {
-                        selected = g;
-                    }
-                }
-                Intent intent = new Intent(view.getContext(), EventInformationsActivity.class);
-                intent.putExtra("event", selected);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
-        });*/
-        /*arrayAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1,
-                arrayEventsName);*/
+        View view = inflater.inflate(R.layout.fragment_my_events,container,false);
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.my_events_tab);
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager_my_events);
+        viewPager.setAdapter(new MyEventsTabPagerAdapter(getActivity().getSupportFragmentManager()));
+        tabLayout.setupWithViewPager(viewPager);
+        getActivity().setTitle("WePlay - My events");
 
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
 
-        Call<List<Event>> call = ServiceUtils.eventService.getMyEvents("katicmilan7@gmail.com");
-        call.enqueue(new Callback<List<Event>>() {
-            @Override
-            public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
-                if(response.code() == 200){
-                    if(response.body().size() == 0){
-                        Toast.makeText(getContext(), "You don't have any events.", Toast.LENGTH_SHORT).show();
-                    }else{
-                        events.clear();
-                        events = response.body();
-                        CustomEventList adapter = new CustomEventList(getContext(),events);
-                        listView.setAdapter(adapter);
-                    }
-                }else{
-                    Toast.makeText(getContext(), "Greška.", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Event>> call, Throwable t) {
-
-            }
-        });
-    }
 }

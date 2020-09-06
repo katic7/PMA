@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.weplayserver.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,7 @@ public class ReviewController {
 	public ResponseEntity<?> createReview(@PathVariable Long id, @RequestBody ReviewDTO r){
 		GamingRoom gr = grRepo.getOne(id);
 		Review review = new Review();
+		float total_rating = 0;
 		User u = userRepo.findByEmail(r.getUser_email());
 		
 		if(!reviewService.canReview(u.getId(), gr.getId())) {
@@ -67,6 +69,13 @@ public class ReviewController {
 		review.setUser(u);
 		reviewRepo.save(review);
 		
+		int numberOfReviews = gr.getReviews().size();
+		for(Review rev : gr.getReviews()) {
+			total_rating = total_rating + rev.getRating();
+		}
+		gr.setRating(total_rating / numberOfReviews);
+		gr.setLast_update_date(new Date().getTime());
+		grRepo.save(gr);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

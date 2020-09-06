@@ -26,4 +26,13 @@ public interface EventService {
 
     @GET(ServiceUtils.GET_MY_EVENTS + "{email}")
     Call<List<Event>> getMyEvents(@Path("email") String email);
+
+    @GET(ServiceUtils.MY_EVENTS_CREATED + "{email}")
+    Call<List<Event>> getCreatedEvents(@Path("email")String email);
+
+    @GET(ServiceUtils.MY_EVENTS_JOINED + "{email}")
+    Call<List<Event>> getJoinedEvents(@Path("email")String email);
+
+    @GET(ServiceUtils.MY_EVENTS_SUBSCRIBEDED + "{email}")
+    Call<List<Event>> getSubEvents(@Path("email")String email);
 }

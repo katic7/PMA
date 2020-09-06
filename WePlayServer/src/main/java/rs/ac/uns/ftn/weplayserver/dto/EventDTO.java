@@ -28,7 +28,7 @@ public class EventDTO {
     public EventDTO(Event e) {
     	this.id = e.getId();
     	this.name = e.getName();
-    	this.game = e.getGame().getName();
+    	this.game = e.getGame();
     	this.joinDeadline = e.getJoinDeadline().toLocaleString();
     	this.numbOfPlayers = e.getNumbOfPlayers();
     	for(User u : e.getParticipants()) {

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Criteria;
@@ -41,9 +42,12 @@ import java.util.List;
 
 import ftn.tim34.weplay.R;
 import ftn.tim34.weplay.activities.GameRoomActivity;
+import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.dialogs.LocationDialog;
 import ftn.tim34.weplay.dto.GamingRoomMap;
+import ftn.tim34.weplay.model.GamingRoom;
 import ftn.tim34.weplay.service.ServiceUtils;
+import ftn.tim34.weplay.sync.GamingRoomSqlSync;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,6 +65,8 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
     private Marker myMarker;
     private List<Marker> grLocation = new ArrayList<>();
     private List<GamingRoomMap> grMap = new ArrayList<>();
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
 
     @Nullable
     @Override
@@ -125,13 +131,13 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
 
                     //Request location updates: - pokretanje procesa lociranja
                     locationManager.requestLocationUpdates(provider, 180, 100, this);
-                    Toast.makeText(getContext(), "ACCESS_FINE_LOCATION", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getContext(), "ACCESS_FINE_LOCATION", Toast.LENGTH_SHORT).show();
                 } else if (ContextCompat.checkSelfPermission(getContext(),
                         Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
                     //Request location updates:
                     locationManager.requestLocationUpdates(provider, 180, 100, this);
-                    Toast.makeText(getContext(), "ACCESS_COARSE_LOCATION", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "ACCESS_COARSE_LOCATION", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -272,8 +278,10 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
                 }
                 if(grMap.size() > 0){
                     for(GamingRoomMap gr : grMap){
-                        openActivity(gr);
-                        return true;
+                        if(marker.getId().equals(gr.getMarkerId())) {
+                            openActivity(gr);
+                            return true;
+                        }
                     }
                 }
                 return true;
@@ -314,25 +322,32 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
     }
 
     public void reloadData(final Location location){
-        Call<List<GamingRoomMap>> call = ServiceUtils.gameRoomService.getAllForMap();
-        call.enqueue(new Callback<List<GamingRoomMap>>() {
-            @Override
-            public void onResponse(Call<List<GamingRoomMap>> call, Response<List<GamingRoomMap>> response) {
-                for(GamingRoomMap grm : response.body()){
-                    float[] result = new float[1];
-                    Location.distanceBetween(location.getLatitude(), location.getLongitude(), grm.getLat(), grm.getLon(), result);
-                    float distanceInMeters = result[0];
-                    if(distanceInMeters < 10000){
-                        addMarkerGamingRoom(grm);
-                    }
+        int ratio = 0; //in meters
+        prefs = getContext().getSharedPreferences("pref", getContext().MODE_PRIVATE);
+        editor = getContext().getSharedPreferences("pref", getContext().MODE_PRIVATE).edit();
+        String distance = prefs.getString("distance", "");
+        if(distance.equals("")){
+            editor.putString("distance","500m");
+            editor.apply();
+            ratio = 500;
+        }else{
+            if(distance.equals("500m")){
+                ratio = 500;
+            }else{
+                ratio = Integer.parseInt(distance.substring(0,distance.length() - 2));
+                ratio = ratio * 1000;
+            }
+        }
+        final List<GamingRoom> grooms = GamingRoomSqlSync.getData(getActivity());
+            for(GamingRoom gr : grooms) {
+
+                float[] result = new float[1];
+                Location.distanceBetween(location.getLatitude(), location.getLongitude(), gr.getLat(), gr.getLon(), result);
+                float distanceInMeters = result[0];
+                if (distanceInMeters < ratio) {
+                    addMarkerGamingRoom(gr);
                 }
             }
-
-            @Override
-            public void onFailure(Call<List<GamingRoomMap>> call, Throwable t) {
-
-            }
-        });
     }
 
 
@@ -356,16 +371,14 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(loc).zoom(14).build();
-        map.moveCamera(CameraUpdateFactory.newLatLng(loc));    //ovo sam dodala ne znam da li je sa tim lepse
+        map.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
-
-        //u pozadini ove metode se desava matematika za pomeranje pozicije kamere da gleda u nasu lokaciju
         map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
-    private void addMarkerGamingRoom(GamingRoomMap gr){
+    private void addMarkerGamingRoom(GamingRoom gr){
         LatLng loc = new LatLng(gr.getLat(), gr.getLon());
-
+        GamingRoomMap grm = new GamingRoomMap(gr);
         Marker m = map.addMarker(new MarkerOptions()
                 .title(gr.getName())
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
@@ -373,12 +386,13 @@ public class GameRoomMapFragment extends Fragment implements OnMapReadyCallback,
         m.setFlat(true);
 
         grLocation.add(m);
-        gr.setMarkerId(m.getId());
-        grMap.add(gr);
+        grm.setMarkerId(m.getId());
+        grMap.add(grm);
     }
 
     private void openActivity(GamingRoomMap gr){
         Intent intent = new Intent(getContext(), GameRoomActivity.class);
+        intent.putExtra("gameRoomId", gr.getId());
         getContext().startActivity(intent);
     }
 

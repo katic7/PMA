@@ -1,9 +1,12 @@
 package ftn.tim34.weplay.adapters;
 
+import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import ftn.tim34.weplay.fragments.GameRoomEventsFragment;
@@ -12,11 +15,12 @@ import ftn.tim34.weplay.fragments.GameRoomReviewsFragment;
 import ftn.tim34.weplay.model.GameRoom;
 
 public class TabPagerAdapter extends FragmentStatePagerAdapter {
-    private GameRoom selected;
+    private Long grId;
 
-    public TabPagerAdapter(@NonNull FragmentManager fm, GameRoom selected) {
-        super(fm);
-        this.selected = selected;
+    @SuppressLint("WrongConstant")
+    public TabPagerAdapter(@NonNull FragmentManager fm, Long grId) {
+        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        this.grId = grId;
     }
 
     @Nullable
@@ -44,13 +48,13 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment=null;
         switch (position){
             case 0:
-                fragment=new GameRoomFragment(selected);
+                fragment=new GameRoomFragment(grId);
                 break;
             case 1:
-                fragment=new GameRoomEventsFragment(selected);
+                fragment=new GameRoomEventsFragment(grId);
                 break;
             case 2:
-                fragment = new GameRoomReviewsFragment(selected);
+                fragment = new GameRoomReviewsFragment(grId);
                 break;
         }
 

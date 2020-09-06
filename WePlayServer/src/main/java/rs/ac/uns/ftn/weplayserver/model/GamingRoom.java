@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,6 +46,9 @@ public class GamingRoom {
             cascade =  CascadeType.ALL,
             mappedBy = "gamingRoom")
     private Address address;
+    
+    @ManyToMany(mappedBy = "favouriteGameRooms")
+    private List<User> users = new ArrayList<>();
 
     @ManyToMany
     @JsonIgnore
@@ -60,5 +64,5 @@ public class GamingRoom {
     @OneToMany(mappedBy = "gamingRoom")
     private List<Event> events = new ArrayList<>();
 
-
+    private long last_update_date;
 }

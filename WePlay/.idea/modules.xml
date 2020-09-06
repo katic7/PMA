@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/PMA-WePlay.iml" filepath="$PROJECT_DIR$/PMA-WePlay.iml" group="WePlay" />
       <module fileurl="file://$PROJECT_DIR$/WePlay.iml" filepath="$PROJECT_DIR$/WePlay.iml" group="WePlay" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="WePlay/app" />
     </modules>

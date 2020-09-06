@@ -21,10 +21,15 @@ import ftn.tim34.weplay.activities.GameRoomActivity;
 import ftn.tim34.weplay.activities.MainActivity;
 import ftn.tim34.weplay.adapters.CustomGameRoomList;
 import ftn.tim34.weplay.model.GameRoom;
+import ftn.tim34.weplay.model.GamingRoom;
+import ftn.tim34.weplay.service.ServiceUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FavoritesFragment extends Fragment {
     private ListView listView;
-    private List<GameRoom> gameRooms;
+    private List<GamingRoom> gameRooms;
     private List<String> arrayOfGameRoomNames = new ArrayList<>();
     private ArrayAdapter arrayAdapter;
 
@@ -32,36 +37,28 @@ public class FavoritesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_favorite,container,false);
-        gameRooms = MainActivity.gameRooms;
-
-            for (GameRoom gr : gameRooms) {
-                arrayOfGameRoomNames.add(gr.getName());
-            }
+        //gameRooms = MainActivity.gameRooms;
+        getActivity().setTitle("WePlay - Favourites");
 
         listView = view.findViewById(R.id.list_view);
-        /*arrayAdapter = new ArrayAdapter<>(getContext(),
-                                          android.R.layout.simple_list_item_1,
-                                          arrayOfGameRoomNames);*/
+        return view;
+    }
 
-        CustomGameRoomList adapter = new CustomGameRoomList(getContext(), gameRooms);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Call<List<GamingRoom>> call = ServiceUtils.gameRoomService.getFavourites("katicmilan7@gmail.com");
+        call.enqueue(new Callback<List<GamingRoom>>() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onResponse(Call<List<GamingRoom>> call, Response<List<GamingRoom>> response) {
+                CustomGameRoomList adapter = new CustomGameRoomList(getContext(), response.body());
+                listView.setAdapter(adapter);
+            }
 
-                Intent intent = new Intent(view.getContext(), GameRoomActivity.class);
-                GameRoom selected = new GameRoom();
-                for(GameRoom g : gameRooms) {
-                    if(g.getName().equals(arrayOfGameRoomNames.get(position))) {
-                        selected = g;
-                    }
-                }
-                intent.putExtra("gameroom", selected);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                //getActivity().finish();
+            @Override
+            public void onFailure(Call<List<GamingRoom>> call, Throwable t) {
+
             }
         });
-        return view;
     }
 }

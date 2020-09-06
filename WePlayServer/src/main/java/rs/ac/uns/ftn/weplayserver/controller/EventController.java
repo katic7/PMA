@@ -1,5 +1,8 @@
 package rs.ac.uns.ftn.weplayserver.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +28,7 @@ import rs.ac.uns.ftn.weplayserver.repository.EventRepository;
 import rs.ac.uns.ftn.weplayserver.repository.GameRepository;
 import rs.ac.uns.ftn.weplayserver.repository.GamingRoomRepository;
 import rs.ac.uns.ftn.weplayserver.repository.UserRepository;
+import rs.ac.uns.ftn.weplayserver.service.EventService;
 
 @RestController
 @RequestMapping(value = "/event")
@@ -42,6 +46,9 @@ public class EventController {
 	@Autowired
 	GameRepository gameRepo;
 	
+	@Autowired
+	EventService eventService;
+	
 	@GetMapping("/getAll/{id}")
 	public ResponseEntity<List<EventDTO>> getAllByGameRoom(@PathVariable Long id){
 		List<Event> events = eventRepo.getAllByGamingRoom(id);
@@ -55,10 +62,11 @@ public class EventController {
 	}
 	
 	@PostMapping("create/{id}")
-	public ResponseEntity<?> createEvent(@PathVariable Long id, @RequestBody EventDTO e){
+	public ResponseEntity<?> createEvent(@PathVariable Long id, @RequestBody EventDTO e) throws ParseException{
+		System.out.println(e.toString());
 		GamingRoom gr = grRepo.getOne(id);
 		Event ev = new Event();
-		Game game = gameRepo.findByName(e.getGame());
+		//Game game = gameRepo.findByName(e.getGame());
 	
 		List<Notification> notif = new ArrayList<Notification>();
 		List<User> parti = new ArrayList<User>();
@@ -69,11 +77,14 @@ public class EventController {
 		ev.setDescription(e.getDescription());
 		//ev.setEventNotifications(notif);
 		ev.setGamingRoom(gr);
-		ev.setJoinDeadline(new Date());
+		DateFormat d = new SimpleDateFormat("dd.MM.yyyy");
+		Date date = d.parse(e.getJoinDeadline());
+		ev.setJoinDeadline(date);
 		ev.setNumbOfPlayers(e.getNumbOfPlayers());
 		ev.setName(e.getName());
 		ev.setParticipants(parti);
-		ev.setGame(game);
+		ev.setGame(e.getGame());
+		ev.setLast_update_date(new Date());
 		eventRepo.save(ev);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -138,5 +149,23 @@ public class EventController {
             retVal.add(new EventDTO(e));
         }
         return new ResponseEntity<List<EventDTO>>(retVal, HttpStatus.OK);
+    }
+    
+    @GetMapping("created/{email}")
+    public ResponseEntity<?>getCreatedEvents(@PathVariable String email){
+    	List<EventDTO> retVal= eventService.getCreated(email);
+    	return new ResponseEntity<List<EventDTO>>(retVal,HttpStatus.OK);
+    }
+    
+    @GetMapping("joined/{email}")
+    public ResponseEntity<?>getJoinedEvents(@PathVariable String email){
+    	List<EventDTO> retVal= eventService.getJoined(email);
+    	return new ResponseEntity<List<EventDTO>>(retVal,HttpStatus.OK);
+    }
+    
+    @GetMapping("subscribed/{email}")
+    public ResponseEntity<?>getSubscribed(@PathVariable String email){
+    	List<EventDTO> retVal= eventService.getSubscribed(email);
+    	return new ResponseEntity<List<EventDTO>>(retVal,HttpStatus.OK);
     }
 }

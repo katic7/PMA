@@ -44,8 +44,8 @@ public class Event{
     @ManyToOne(fetch = FetchType.EAGER)
     private User creator;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Game game;
+    //@ManyToOne(fetch = FetchType.EAGER)
+    private String game;
 
     @ManyToMany(mappedBy = "participantEvents")
     private List<User> participants = new ArrayList<>();
@@ -59,4 +59,5 @@ public class Event{
     @OneToMany
     private List<Notification> notifications;
 
+    private Date last_update_date;
 }

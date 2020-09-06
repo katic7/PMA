@@ -40,9 +40,12 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
     int Year, Month, Day ;
     private EditText et_name;
     private EditText et_numbOfPlayers;
-    private EditText et_game;
+    private Spinner game_select;
     private RatingBar rb_minSkillLevel;
     private EditText et_deadline;
+    private String[] arraySpinner = new String[] {
+            "CS GO", "Fortnite", "LOL", "Call of Duty", "GTA V", "Fifa 2020"
+    };
 
     private Long roomId;
 
@@ -50,7 +53,7 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        //Spinner spinner = (Spinner) findViewById(R.id.spinner);
         Bundle extras = getIntent().getExtras();
 
         roomId = extras.getLong("roomId");
@@ -58,7 +61,13 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
         btnCreate = findViewById(R.id.btn_create);
         et_name = findViewById(R.id.eName);
         et_numbOfPlayers = findViewById(R.id.ePlayers);
-        et_game = findViewById(R.id.eGame);
+        game_select = findViewById(R.id.game_select);
+
+        ArrayAdapter<String> adapterr = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapterr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        game_select.setAdapter(adapterr);
+
         rb_minSkillLevel = findViewById(R.id.rb_minSkillLevel);
         et_deadline = findViewById(R.id.et_deadline);
 
@@ -67,7 +76,7 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(adapter);
+        //spinner.setAdapter(adapter);
         calendar = Calendar.getInstance();
 
         Year = calendar.get(Calendar.YEAR) ;
@@ -108,8 +117,8 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
                     e.printStackTrace();
                     date1 = new Date();
                 }*/
-                Event e = new Event(et_name.getText().toString(), et_game.getText().toString(),Integer.parseInt(et_numbOfPlayers.getText().toString()),0,"3",et_deadline.getText().toString(),"katicmilan7@gmail.com","Strava turnir - 20kRSD");
-                final Call<ResponseBody> call = ServiceUtils.eventService.createEvent(Long.parseLong("1"),e);
+                Event e = new Event(et_name.getText().toString(), game_select.getSelectedItem().toString(),Integer.parseInt(et_numbOfPlayers.getText().toString()),0,"3",et_deadline.getText().toString(),"katicmilan7@gmail.com","Strava turnir - 20kRSD");
+                final Call<ResponseBody> call = ServiceUtils.eventService.createEvent(roomId,e);
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

@@ -88,16 +88,12 @@
                 android:text="@string/lbl_radius"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/ftRadius"
+            <Spinner
+                android:id="@+id/spRadius"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:width="50dp"
-                android:ems="10"
-                android:inputType="number"
-                android:text="10"
-                android:textAlignment="textEnd" />
+                android:width="50dp" />
         </LinearLayout>
 
         <LinearLayout

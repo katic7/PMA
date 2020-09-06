@@ -24,6 +24,9 @@ public class GameRoom implements Serializable {
     @SerializedName("working_hours")
     String working_hours;
 
+    @SerializedName("favourite")
+    boolean favourite;
+
     @SerializedName("phoneNumber")
     String phoneNumber;
 
@@ -33,17 +36,11 @@ public class GameRoom implements Serializable {
     @SerializedName("address")
     private Address address;
 
-    @SerializedName("events")
-    List<Event> events = new ArrayList<Event>();
-
-    @SerializedName("reviews")
-    List<Review> reviews = new ArrayList<Review>();
-
     public GameRoom() {
         super();
     }
 
-    public GameRoom(Long id,String name, Integer price_per_hour, String working_hours, String phoneNumber, float rating, Address adr) {
+    public GameRoom(Long id,String name, Integer price_per_hour, String working_hours, String phoneNumber, float rating, Address adr, boolean favouirite) {
         super();
         this.id = id;
         this.name = name;
@@ -52,6 +49,7 @@ public class GameRoom implements Serializable {
         this.phoneNumber = phoneNumber;
         this.rating = rating;
         this.address = adr;
+        this.favourite = favouirite;
     }
 
     public String getName() {
@@ -98,22 +96,6 @@ public class GameRoom implements Serializable {
         return phoneNumber;
     }
 
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
     public void setPrice_per_hour(int price_per_hour) {
         this.price_per_hour = price_per_hour;
     }
@@ -140,5 +122,13 @@ public class GameRoom implements Serializable {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public boolean isFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
     }
 }

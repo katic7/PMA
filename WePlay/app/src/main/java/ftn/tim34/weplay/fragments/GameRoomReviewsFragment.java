@@ -35,7 +35,7 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class GameRoomReviewsFragment extends Fragment {
-    private GameRoom selected;
+    private Long grId;
     private List<Review> reviews;
     private ListView listView;
     private List<String> arrayReviews = new ArrayList<String>();
@@ -58,8 +58,8 @@ public class GameRoomReviewsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public GameRoomReviewsFragment(GameRoom g) {
-        this.selected = g;
+    public GameRoomReviewsFragment(Long grId) {
+        this.grId = grId;
     }
 
     /**
@@ -113,9 +113,9 @@ public class GameRoomReviewsFragment extends Fragment {
                         r = new Review();        //zakucano za sada
                         r.setComment(et_comment.getText().toString());
                         r.setStars(rb_rating.getRating());
-                        r.setUser_email("nemanjadimsic6@gmail.com");
-                        r.setUser("Nemanja Dimsic");
-                        Call<ResponseBody> call = ServiceUtils.reviewService.createReview(selected.getId(), r);
+                        r.setUser_email("katicmilan7@gmail.com");
+                        r.setUser("Milan Katic");
+                        Call<ResponseBody> call = ServiceUtils.reviewService.createReview(grId, r);
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -150,7 +150,7 @@ public class GameRoomReviewsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         reviews = new ArrayList<Review>();
-        final Call<List<Review>> call = ServiceUtils.reviewService.getAllReviews(selected.getId());
+        final Call<List<Review>> call = ServiceUtils.reviewService.getAllReviews(grId);
         call.enqueue(new Callback<List<Review>>() {
             @Override
             public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {

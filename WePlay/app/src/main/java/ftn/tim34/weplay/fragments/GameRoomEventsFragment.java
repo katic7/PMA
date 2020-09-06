@@ -32,7 +32,7 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class GameRoomEventsFragment extends Fragment {
-    private GameRoom selected;
+    private Long grId;
     private ListView listView;
     private List<Event> events;
     private List<String> arrayEventsName = new ArrayList<String>();
@@ -52,8 +52,8 @@ public class GameRoomEventsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public GameRoomEventsFragment(GameRoom g) {
-        this.selected = g;
+    public GameRoomEventsFragment(Long grId) {
+        this.grId = grId;
     }
 
     /**
@@ -97,7 +97,7 @@ public class GameRoomEventsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CreateEventActivity.class);
-                intent.putExtra("roomId", selected.getId());
+                intent.putExtra("roomId", grId);
                 startActivity(intent);
             }
         });
@@ -106,7 +106,7 @@ public class GameRoomEventsFragment extends Fragment {
 
     @Override
     public void onResume() {
-        final Call<List<Event>> call = ServiceUtils.eventService.getAllGamingRoomEvents(selected.getId());
+        final Call<List<Event>> call = ServiceUtils.eventService.getAllGamingRoomEvents(grId);
         call.enqueue(new Callback<List<Event>>() {
             @Override
             public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {

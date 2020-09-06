@@ -3,12 +3,14 @@ package ftn.tim34.weplay.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +39,8 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
     private GoogleMap map;
     private Button joinButton;
     private Button subscribeButton;
+    private ImageView imgNotif;
+    private Context context;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -46,8 +50,10 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
         Bundle extras = getIntent().getExtras();
         selected = (Event) extras.get("event");
         TextView naslov = findViewById(R.id.temp);
+        context = this;
         joinButton = findViewById(R.id.button2);
         subscribeButton = findViewById(R.id.button3);
+        imgNotif = findViewById(R.id.imgNotification);
         TextView game = findViewById(R.id.game);
         TextView deadline = findViewById(R.id.deadline);
         TextView minimum = findViewById(R.id.minimumSkillLevel);
@@ -64,7 +70,7 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
             SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.details_map);
             mapFrag.getMapAsync(this);
         }
-        final String logged = sharedPreferences.getString("userEmail", "nemanjadimsic6@gmail.com");
+        final String logged = sharedPreferences.getString("userEmail", "katicmilan7@gmail.com");
 
         for(User p: selected.getParticipants()) {
             if (p.getEmail().equals(logged)) { //vec ucestujem
@@ -80,6 +86,16 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
                 subscribeButton.setClickable(false);
                 subscribeButton.setTextColor(getResources().getColor(R.color.aprrovedButton));
                 subscribeButton.setText("SUBSCRIBED");
+                imgNotif.setVisibility(View.VISIBLE);
+                imgNotif.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, EventInformationsActivity.class);
+                        intent.putExtra("event", selected);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
                 break;
             }
         }
@@ -98,7 +114,7 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
     }
 
     public void joinButton(View v) {
-        final Call<ResponseBody> call = ServiceUtils.eventService.joinEvent(selected.getId(), sharedPreferences.getString("userEmail", "nemanjadimsic6@gmail.com"));
+        final Call<ResponseBody> call = ServiceUtils.eventService.joinEvent(selected.getId(), sharedPreferences.getString("userEmail", "katicmilan7@gmail.com"));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -128,7 +144,7 @@ public class EventDetailsActivity extends AppCompatActivity implements OnMapRead
     }
 
     public void subscribeButton(View v) {
-        final Call<ResponseBody> call = ServiceUtils.eventService.subscribeEvent(selected.getId(), sharedPreferences.getString("userEmail", "nemanjadimsic6@gmail.com"));
+        final Call<ResponseBody> call = ServiceUtils.eventService.subscribeEvent(selected.getId(), sharedPreferences.getString("userEmail", "katicmilan7@gmail.com"));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
